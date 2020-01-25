@@ -17,10 +17,5 @@ nearby_homes: [
 ]
 
 });
-//google maps api for the map
-//nearby homes images
-let save = () => {
 
-}
-let Repo = mongoose.model('Repo', listingSchema)
 
