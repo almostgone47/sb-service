@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/fetcher', {useMongoClient: true});
+mongoose.connect('mongodb://localhost/neighbors', {useMongoClient: true});
 
 let listingSchema = mongoose.Schema({
 neighborhood: Number,
