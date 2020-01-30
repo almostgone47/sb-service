@@ -11,7 +11,7 @@ let data = (num)=> {
       var address= '';
   
       neighborhoodObj.neighborhood= faker.random.number(),
-      neighborhoodObj.mapImage= 'https://7-xillow.s3-us-west-1.amazonaws.com/neighborMap1.png',
+      neighborhoodObj.mapImage= 'https://7-xillow.s3-us-west-1.amazonaws.com/clearImage1.png',
       neighborhoodObj.walk_score = faker.random.number(),
       neighborhoodObj.transit_score = faker.random.number(),
       neighborhoodObj.price = faker.random.number(),
