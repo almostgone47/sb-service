@@ -1,11 +1,8 @@
-
+//require faker to generate fake data
 const faker = require ('faker')
 
-//Array of all the hosted images
-// var nearbyimages = ['https://7-xillow.s3-us-west-1.amazonaws.com/nearbyHouse1.png','https://7-xillow.s3-us-west-1.amazonaws.com/nearbyHouse2.png', 'https://7-xillow.s3-us-west-1.amazonaws.com/nearbyHouse3.png'];
-// var neighborhoodMap = ['https://7-xillow.s3-us-west-1.amazonaws.com/neighborMap1.png', 'https://7-xillow.s3-us-west-1.amazonaws.com/neighborMap2.png', 'https://7-xillow.s3-us-west-1.amazonaws.com/neighborMap3.png'];
 
-//random fake seed data
+//generate seed data using faker
 let data = (num)=> {
     var neighborhoodArray =[];
     for(var i=0; i<num; i++){

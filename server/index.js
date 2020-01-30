@@ -10,14 +10,9 @@ app.use(express.json())
 
 // Serve static files. Any requests for specific files will be served if they exist in the provided folder
 app.use(express.static(path.join(__dirname, '../client/dist')));
-// Start the server on the provided port
 
-app.post('/listings', (req, res) => {
-    console.log(req.body)
-    database.save(req.body)
-    res.send('success')
-})
 
+//get request to get the data from the db
 app.get('/listings', function (req, res) {
     // TODO - your code here!
     // This route should send back the top 25 repos

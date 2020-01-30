@@ -1,10 +1,12 @@
-const faker = require ('faker')
+//reuire mongoose to write the schema
 const mongoose = require('mongoose');
 const fakedata = require ('./fakedata.js')
 const data = fakedata.data;
-mongoose.connect('mongodb://localhost/7-xillow', {useMongoClient: true});
 
-let listingSchema = mongoose.Schema({
+//connnect to mongodb and create a db called 7-xillow
+mongoose.connect('mongodb://localhost/7-xillow', {useMongoClient: true});
+mongoose.connection.dropDatabase(); //drop if the db exists
+let listingSchema = mongoose.Schema({ //create a Schema for the db
 
 neighborhood: Number,
 mapImage: String,
@@ -18,17 +20,8 @@ address: String,
 nearbyImage: String
 
 });
-//google maps api for the map
-//nearby homes images
-let Houses = mongoose.model('Houses', listingSchema)
 
-// Houses.insertMany(listingSchema, (err)=> {
-//     if(err){
-//         console.log(err)
-//     } else {
-//         console.log("this is a huge sucess")
-//     }
-// })
+let Houses = mongoose.model('Houses', listingSchema)
 let save = (listing)=> {
 
     var newListing = Houses ({
@@ -58,6 +51,7 @@ let save = (listing)=> {
 var neighborhoodInfo = data(100)
 neighborhoodInfo.forEach(listing => save(listing));
 
+//to fetech data from the db
 let fetch = (callback) => {
     //get something from the database ...
   Houses.find((err, documents) => {
