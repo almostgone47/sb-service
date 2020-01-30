@@ -1,16 +1,21 @@
+const faker = require ('faker')
 const mongoose = require('mongoose');
+const fakedata = require ('./fakedata.js')
+const data = fakedata.data;
 mongoose.connect('mongodb://localhost/7-xillow', {useMongoClient: true});
 
 let listingSchema = mongoose.Schema({
 
 neighborhood: Number,
+mapImage: String,
 walk_score: Number,
 transit_score: Number,
 price:Number,
 sqft: Number,
 bedNumber: Number,
 bathNumner: Number,
-address: String
+address: String,
+nearbyImage: String
 
 });
 //google maps api for the map
@@ -27,14 +32,17 @@ let Houses = mongoose.model('Houses', listingSchema)
 let save = (listing)=> {
 
     var newListing = Houses ({
+
     neighborhood: listing.neighborhood,
+    mapImage: listing.mapImage,
     walk_score: listing.walk_score,
     transit_score: listing.transit_score,
     price:listing.price,
     sqft: listing.sqft,
     bedNumber: listing.bedNumber,
     bathNumner: listing.bathNumner,
-    address: listing.address
+    address: listing.address,
+    nearbyImage: listing.nearbyImage
     })
 
     newListing.save((err, newListing) => {
@@ -45,6 +53,10 @@ let save = (listing)=> {
         }
     })
 }
+
+//seed mock data
+var neighborhoodInfo = data(100)
+neighborhoodInfo.forEach(listing => save(listing));
 
 let fetch = (callback) => {
     //get something from the database ...
