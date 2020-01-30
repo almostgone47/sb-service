@@ -15,9 +15,9 @@ componentDidMount(){
 axios.get ('./listings')
 .then( (response)=>{
     // handle success
-    console.log(response.data);
+  
     this.setState ({
-        value : response.data
+        value : response.data[0].walk_score
     })
   })
   .catch( (error)=> {
@@ -26,11 +26,11 @@ axios.get ('./listings')
   })
 }
 
-
     render() {
+   
         return (
-            <div> 
-         
+            <div className = 'foo'> 
+         hello world
             </div>
         )
     }
@@ -38,4 +38,4 @@ axios.get ('./listings')
 
 
 
-module.exports = App;
+export default App;
