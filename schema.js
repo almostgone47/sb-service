@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/fetcher', {useMongoClient: true});
+mongoose.connect('mongodb://localhost/neighbors', {useMongoClient: true});
 
 let listingSchema = mongoose.Schema({
 neighborhood: Number,
@@ -17,9 +17,7 @@ nearby_homes: [
 ]
 
 });
-//google maps api for the map
-//nearby homes images
-let Repo = mongoose.model('Repo', listingSchema)
+
 
 
 
