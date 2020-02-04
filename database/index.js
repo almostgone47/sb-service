@@ -17,12 +17,14 @@ sqft: Number,
 bedNumber: Number,
 bathNumner: Number,
 address: String,
-nearbyImage: String
+nearbyImage:[{type: String}]
 
 });
 
 let Houses = mongoose.model('Houses', listingSchema)
+
 let save = (listing)=> {
+
 
     var newListing = Houses ({
 
@@ -36,7 +38,9 @@ let save = (listing)=> {
     bathNumner: listing.bathNumner,
     address: listing.address,
     nearbyImage: listing.nearbyImage
+    
     })
+  
 
     newListing.save((err, newListing) => {
         if(err) {

@@ -1,16 +1,31 @@
 import React from 'react';
-// import styled from 'styled-components';
+import {Line, Zestimate, NeighborDiv, SummaryPara, Price} from './style.jsx';
 
 const NeighborSummary = ({number}) => (
  <div>
-<h3>This is a seller's market</h3>
-<p>There are more interested buyers than homes for sale.</p>
-<h4>Neighborhood home value</h4>
-<p><label style ={{color: 'blue'}}>{number} home values</label> have risen 0.2 % over the past 12 months.</p>
-<h4>One-year prediction</h4>
-<p>Zillow predicts the home values in label {number} will rise 0.1% in the next year. </p>
-<h4>Median home comparison</h4>
-<p>This home is valued 28.5% higher than the median home in {number} </p>
+      <NeighborDiv>
+<Line>
+      <Zestimate>This is a seller's market
+            </Zestimate></Line>
+There are more interested buyers than homes for sale. 
+</NeighborDiv>
+<NeighborDiv>
+<Line>Neighborhood home value</Line>
+<SummaryPara><label style ={{color: '#346eeb'}}>{number} home values</label> have risen 0.2 % over the past 12 months.</SummaryPara>
+</NeighborDiv>
+<NeighborDiv>
+<Line>One-year prediction</Line>
+<SummaryPara> predicts the home values in label {number} will rise 0.1% in the next 
+year. </SummaryPara>
+</NeighborDiv> 
+<NeighborDiv>
+<Line>Median home comparison</Line>
+<SummaryPara>This home is valued 28.5% higher than the median home in {number} </SummaryPara>
+</NeighborDiv>
+
+<Line>
+     <Zestimate> Median Zestimate<sup>&reg;</sup></Zestimate><Price>$1,192,599</Price>
+</Line>
  </div>
 )
 

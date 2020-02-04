@@ -1,10 +1,16 @@
 //require faker to generate fake data
 const faker = require ('faker')
 
+const nearbyImages = ['https://7-xillow.s3-us-west-1.amazonaws.com/img1.jpeg', 'https://7-xillow.s3-us-west-1.amazonaws.com/img2.jpeg',
+'https://7-xillow.s3-us-west-1.amazonaws.com/img3.jpeg', 'https://7-xillow.s3-us-west-1.amazonaws.com/img4.jpeg', 'https://7-xillow.s3-us-west-1.amazonaws.com/img5.jpeg',
+'https://7-xillow.s3-us-west-1.amazonaws.com/img6.jpeg', 'https://7-xillow.s3-us-west-1.amazonaws.com/img7.jpeg'
+]
+
 
 //generate seed data using faker
 let data = (num)=> {
     var neighborhoodArray =[];
+    
     for(var i=0; i<num; i++){
        
       var neighborhoodObj ={}
@@ -28,7 +34,10 @@ let data = (num)=> {
     address += faker.address.zipCode();
 
     neighborhoodObj.address = address
-    neighborhoodObj.nearbyImage = 'https://7-xillow.s3-us-west-1.amazonaws.com/nearbyHouse1.png'
+
+ 
+    neighborhoodObj.nearbyImage = nearbyImages[2]
+
     neighborhoodArray.push(neighborhoodObj);
 
     }
