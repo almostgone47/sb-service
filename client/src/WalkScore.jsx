@@ -1,15 +1,18 @@
 import React from 'react';
-import styled from 'styled-components';
+import {SpanWalkscore, WalkscoreDiv, Score} from './style.jsx'
 
-const Score = styled.h4 `
-color: blue;
-line-height: 0;
-`
-const WalkScore = ({walkscore, transitscore}) => (
-<div>
-    <Score> walk score {walkscore} </Score> 
-    <Score>transit score {transitscore} </Score>
-</div>
+
+const WalkScore = ({walkscore, transitscore, showTooltip, showdisplayTransit}) => (
+<WalkscoreDiv>
+    <Score onClick = {showTooltip}> 
+   Walk Score &reg;  {walkscore} 
+  <SpanWalkscore>(Very Walkable)</SpanWalkscore> 
+        </Score>
+        <Score onClick= {showdisplayTransit}>	
+        Transit Score &trade;  {transitscore}
+        <SpanWalkscore>(Good Transit)</SpanWalkscore> 
+        </Score>
+</WalkscoreDiv>
 )
 
 export default WalkScore;
