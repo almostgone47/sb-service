@@ -61,7 +61,6 @@ width: 250px;
 `
 
 export const Para_nearby = styled.div `
-line-height: 7px;
 font-size: 12px;
 font-style: 'Ariel';
 `
