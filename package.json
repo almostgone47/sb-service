@@ -10,7 +10,7 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "react-dev": "webpack -d --watch",
+    "react-dev": "webpack --watch",
     "seed": "nodemon server/index.js",
     "test": "jest"
   },
