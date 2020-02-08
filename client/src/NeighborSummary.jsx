@@ -3,16 +3,17 @@ import {Line, Zestimate, NeighborDiv, SummaryPara, Price} from './style.jsx';
 
 const NeighborSummary = ({number}) => (
  <div>
-      <NeighborDiv>
+    
 <Line>
       <Zestimate>This is a seller's market
             </Zestimate></Line>
+
 There are more interested buyers than homes for sale. 
-</NeighborDiv>
-<NeighborDiv>
+
+
 <Line>Neighborhood home value</Line>
 <SummaryPara><label style ={{color: '#346eeb'}}>{number} home values</label> have risen 0.2 % over the past 12 months.</SummaryPara>
-</NeighborDiv>
+
 <NeighborDiv>
 <Line>One-year prediction</Line>
 <SummaryPara> predicts the home values in label {number} will rise 0.1% in the next 

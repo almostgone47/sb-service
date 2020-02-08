@@ -87,16 +87,21 @@ export const Score = styled.h4 `
 `
 //NeighborhoodSummary
 
-export const Line = styled.h4 `
+export const Line = styled.p `
 cursor: pointer;
 color: #121212;
+font-weight: bold;
+padding: 0px;
+
 `
 export const NeighborDiv = styled.div `
-Line-height: 0;
-padding: 4px;
+
+
 `
-export const SummaryPara = styled.p `
+export const SummaryPara = styled.p`
 color : #242625
+marging-top:0
+
 `
 export const Price = styled.span `
 margin-left: 250px;
