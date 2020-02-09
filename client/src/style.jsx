@@ -95,10 +95,10 @@ padding: 0px;
 
 `
 export const NeighborDiv = styled.div `
-
+padding: 0px;
 
 `
-export const SummaryPara = styled.p`
+export const SummaryPara = styled.div `
 color : #242625
 marging-top:0
 
