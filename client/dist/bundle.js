@@ -650,7 +650,7 @@ var _templateObject = _taggedTemplateLiteral(['\nmax-width: 500px;\nmargin: auto
     _templateObject14 = _taggedTemplateLiteral(['\ncolor: #346eeb;\nline-height: 0;\nfont-weight: 0;\ncursor: pointer;\n'], ['\ncolor: #346eeb;\nline-height: 0;\nfont-weight: 0;\ncursor: pointer;\n']),
     _templateObject15 = _taggedTemplateLiteral(['\n&:hover {\n  opacity: 0.6;\n  }\n'], ['\n&:hover {\n  opacity: 0.6;\n  }\n']),
     _templateObject16 = _taggedTemplateLiteral(['\ncursor: pointer;\ncolor: #121212;\nfont-weight: bold;\npadding: 0px;\n\n'], ['\ncursor: pointer;\ncolor: #121212;\nfont-weight: bold;\npadding: 0px;\n\n']),
-    _templateObject17 = _taggedTemplateLiteral(['\n\n\n'], ['\n\n\n']),
+    _templateObject17 = _taggedTemplateLiteral(['\npadding: 0px;\n\n'], ['\npadding: 0px;\n\n']),
     _templateObject18 = _taggedTemplateLiteral(['\ncolor : #242625\nmarging-top:0\n\n'], ['\ncolor : #242625\nmarging-top:0\n\n']),
     _templateObject19 = _taggedTemplateLiteral(['\nmargin-left: 250px;\n'], ['\nmargin-left: 250px;\n']),
     _templateObject20 = _taggedTemplateLiteral(['\nborder-bottom: dotted;\nborder-color:silver;\n'], ['\nborder-bottom: dotted;\nborder-color:silver;\n']),
@@ -692,7 +692,7 @@ var Score = exports.Score = _styledComponents2.default.h4(_templateObject15);
 
 var Line = exports.Line = _styledComponents2.default.p(_templateObject16);
 var NeighborDiv = exports.NeighborDiv = _styledComponents2.default.div(_templateObject17);
-var SummaryPara = exports.SummaryPara = _styledComponents2.default.p(_templateObject18);
+var SummaryPara = exports.SummaryPara = _styledComponents2.default.div(_templateObject18);
 var Price = exports.Price = _styledComponents2.default.span(_templateObject19);
 var Zestimate = exports.Zestimate = _styledComponents2.default.span(_templateObject20);
 
@@ -3885,7 +3885,9 @@ var _Neighborhood2 = _interopRequireDefault(_Neighborhood);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_reactDom2.default.render(_react2.default.createElement(_Neighborhood2.default, null), document.getElementById('app'));
+_reactDom2.default.render(_react2.default.createElement(_Neighborhood2.default, null), document.getElementsByClassName('nh')[1]);
+
+//  ReactDOM.render (<App/> , document.getElementById('app'));
 
 /***/ }),
 /* 45 */
