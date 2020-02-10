@@ -4,7 +4,7 @@ import NeighborSummary from './NeighborSummary.jsx';
 import Nearbyhomes from './Nearbyhomes.jsx';
 import Nearbyhomestwo from './Nearbyhomestwo.jsx';
 import Tooltip from './Tooltip.jsx';
-import {Body, Image, Svg, Label, Para, Span, Title, Wide} from './style.jsx';
+import {Body, Image, Svg, Label, Para, Span, Title, Wide, WalkButton, TransitButton} from './style.jsx';
 
 
 class App extends React.Component {
@@ -157,18 +157,17 @@ showLessnearbyhouse (event) {
                {<div>
                    <h4> WHAT IS A WALK SCORE?</h4>
                    <p>Walk Score measures how walkable an address is based on the distance to nearby amenities.</p>
-                   <Label>Learn how it works</Label>
+                   <WalkButton>Learn how it works</WalkButton>
                    <Wide></Wide>
-                   <Label>See detailed Walk score rating</Label>
+                   <TransitButton>See detailed Walk score rating</TransitButton>
                    </div>
                 }
                 messageTransit = {
                     <div>
                    <h4> WHAT IS A TRANSIT SCORE?</h4>
                    <p>Transit Score measures how walkable an address is based on the distance to nearby amenities.</p>
-                   <Label>Learn how it works</Label>
-                   <Wide></Wide>
-                   <Label>See detailed Walk score rating</Label>
+                   <WalkButton>Learn how it works</WalkButton>
+                   <TransitButton>See detailed Walk score rating</TransitButton>
                    </div>
                 }
                 walkscore = {this.state.walk_score} transitscore = {this.transit_score} />

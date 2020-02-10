@@ -53,6 +53,7 @@ width:250px;
 border-right: 0.2px solid silver;
 border-left: 0.2px solid silver;
 border-bottom: 3px solid #346eeb;
+border-top: 0.2px solid silver;
 flex: 1 1 auto;
 cursor: pointer;
 `
@@ -61,15 +62,38 @@ width: 250px;
 `
 
 export const Para_nearby = styled.div `
-font-size: 12px;
-font-style: 'Ariel';
+font-size: 11px;
+margin: 6px;
+padding:0px;
+font-weight: none;
+line-style:none;
+letter-spacing: 0.2px;
+`
+export const Dot = styled.p `
+height: 9px;
+width: 9px;
+background-color: #ffd700;
+border-radius: 50%;
+display: inline-block;
+float: right;
+margin-right: 10px;
+`
+export const Dott = styled.div `
+height: 4px;
+width: 4px;
+background-color: #B0B0B0;
+border-radius: 50%;
+display: inline-block;
+`
+export const Bold = styled.div `
+font-weight: bold;
+margin: 0
 `
 
 //Walkscore
 export const SpanWalkscore = styled. span `
 color: black;
 font-weight: normal;
-font-size: 13px;
 &:hover {
   opacity: none;
   }
@@ -81,10 +105,26 @@ font-weight: 0;
 cursor: pointer;
 `
 export const Score = styled.h4 `
+font-size: 15px;
 &:hover {
   opacity: 0.6;
   }
 `
+
+export const Icon = styled.i `
+font-family: 'Material Icons';
+font-weight: normal;
+font-style: normal;
+font-size: 15px;  /* Preferred icon size */
+display: inline-block;
+line-height: 1;
+text-transform: none;
+letter-spacing: normal;
+word-wrap: normal;
+white-space: nowrap;
+direction: ltr;
+`
+
 //NeighborhoodSummary
 
 export const Line = styled.p `
@@ -95,7 +135,7 @@ padding: 0px;
 
 `
 export const NeighborDiv = styled.div `
-padding: 0px;
+
 
 `
 export const SummaryPara = styled.div `
@@ -120,11 +160,13 @@ font-size: .75rem;
 line-height: 1.4;
 padding: .75em;
 text-align: center;
+font- family: font-family: "Open Sans", Tahoma, Geneva, sans-serif;
 `
 export const Bubble = styled.span `
 min-width: 120px;
 max-width: 210px;
 position: absolute;
+border-radius: 5px;
 top: 100%;
   left: 40%;
   padding-top: 9px;
@@ -142,4 +184,22 @@ top: 100%;
 `
 export const Ttip = styled.div `
   position: relative;
+`
+export const WalkButton = styled.button `
+background-color: Transparent;
+background-repeat:no-repeat;
+border: none;
+cursor:pointer;
+overflow: hidden;
+outline:none;
+color: purple;
+`
+export const TransitButton = styled.button `
+background-color: Transparent;
+background-repeat:no-repeat;
+border: none;
+cursor:pointer;
+overflow: hidden;
+outline:none;
+color: #346eeb;
 `

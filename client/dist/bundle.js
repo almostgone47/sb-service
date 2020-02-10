@@ -632,7 +632,7 @@ if (process.env.NODE_ENV === 'production') {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.Ttip = exports.Bubble = exports.Message = exports.Zestimate = exports.Price = exports.SummaryPara = exports.NeighborDiv = exports.Line = exports.Score = exports.WalkscoreDiv = exports.SpanWalkscore = exports.Para_nearby = exports.ImageNearby = exports.SpanOne = exports.Container = exports.Wide = exports.Title = exports.Span = exports.Para = exports.Label = exports.Svg = exports.Image = exports.Body = undefined;
+exports.TransitButton = exports.WalkButton = exports.Ttip = exports.Bubble = exports.Message = exports.Zestimate = exports.Price = exports.SummaryPara = exports.NeighborDiv = exports.Line = exports.Icon = exports.Score = exports.WalkscoreDiv = exports.SpanWalkscore = exports.Bold = exports.Dott = exports.Dot = exports.Para_nearby = exports.ImageNearby = exports.SpanOne = exports.Container = exports.Wide = exports.Title = exports.Span = exports.Para = exports.Label = exports.Svg = exports.Image = exports.Body = undefined;
 
 var _templateObject = _taggedTemplateLiteral(['\nmax-width: 500px;\nmargin: auto;\n'], ['\nmax-width: 500px;\nmargin: auto;\n']),
     _templateObject2 = _taggedTemplateLiteral(['\nwidth: 510px;\n'], ['\nwidth: 510px;\n']),
@@ -643,20 +643,26 @@ var _templateObject = _taggedTemplateLiteral(['\nmax-width: 500px;\nmargin: auto
     _templateObject7 = _taggedTemplateLiteral(['\nfont-family: \'Notable\', sans-serif;\nborder-bottom: 0.1px solid silver;\nfont-weight: normal;\ncolor: #000000;\npadding: 10px;\nletter-spacing: 1px;\n'], ['\nfont-family: \'Notable\', sans-serif;\nborder-bottom: 0.1px solid silver;\nfont-weight: normal;\ncolor: #000000;\npadding: 10px;\nletter-spacing: 1px;\n']),
     _templateObject8 = _taggedTemplateLiteral(['\npadding:8px;\n'], ['\npadding:8px;\n']),
     _templateObject9 = _taggedTemplateLiteral(['\ndisplay: flex;\n'], ['\ndisplay: flex;\n']),
-    _templateObject10 = _taggedTemplateLiteral(['\nwidth:250px;\nborder-right: 0.2px solid silver;\nborder-left: 0.2px solid silver;\nborder-bottom: 3px solid #346eeb;\nflex: 1 1 auto;\ncursor: pointer;\n'], ['\nwidth:250px;\nborder-right: 0.2px solid silver;\nborder-left: 0.2px solid silver;\nborder-bottom: 3px solid #346eeb;\nflex: 1 1 auto;\ncursor: pointer;\n']),
+    _templateObject10 = _taggedTemplateLiteral(['\nwidth:250px;\nborder-right: 0.2px solid silver;\nborder-left: 0.2px solid silver;\nborder-bottom: 3px solid #346eeb;\nborder-top: 0.2px solid silver;\nflex: 1 1 auto;\ncursor: pointer;\n'], ['\nwidth:250px;\nborder-right: 0.2px solid silver;\nborder-left: 0.2px solid silver;\nborder-bottom: 3px solid #346eeb;\nborder-top: 0.2px solid silver;\nflex: 1 1 auto;\ncursor: pointer;\n']),
     _templateObject11 = _taggedTemplateLiteral(['\nwidth: 250px;\n'], ['\nwidth: 250px;\n']),
-    _templateObject12 = _taggedTemplateLiteral(['\nfont-size: 12px;\nfont-style: \'Ariel\';\n'], ['\nfont-size: 12px;\nfont-style: \'Ariel\';\n']),
-    _templateObject13 = _taggedTemplateLiteral(['\ncolor: black;\nfont-weight: normal;\nfont-size: 13px;\n&:hover {\n  opacity: none;\n  }\n'], ['\ncolor: black;\nfont-weight: normal;\nfont-size: 13px;\n&:hover {\n  opacity: none;\n  }\n']),
-    _templateObject14 = _taggedTemplateLiteral(['\ncolor: #346eeb;\nline-height: 0;\nfont-weight: 0;\ncursor: pointer;\n'], ['\ncolor: #346eeb;\nline-height: 0;\nfont-weight: 0;\ncursor: pointer;\n']),
-    _templateObject15 = _taggedTemplateLiteral(['\n&:hover {\n  opacity: 0.6;\n  }\n'], ['\n&:hover {\n  opacity: 0.6;\n  }\n']),
-    _templateObject16 = _taggedTemplateLiteral(['\ncursor: pointer;\ncolor: #121212;\nfont-weight: bold;\npadding: 0px;\n\n'], ['\ncursor: pointer;\ncolor: #121212;\nfont-weight: bold;\npadding: 0px;\n\n']),
-    _templateObject17 = _taggedTemplateLiteral(['\npadding: 0px;\n\n'], ['\npadding: 0px;\n\n']),
-    _templateObject18 = _taggedTemplateLiteral(['\ncolor : #242625\nmarging-top:0\n\n'], ['\ncolor : #242625\nmarging-top:0\n\n']),
-    _templateObject19 = _taggedTemplateLiteral(['\nmargin-left: 250px;\n'], ['\nmargin-left: 250px;\n']),
-    _templateObject20 = _taggedTemplateLiteral(['\nborder-bottom: dotted;\nborder-color:silver;\n'], ['\nborder-bottom: dotted;\nborder-color:silver;\n']),
-    _templateObject21 = _taggedTemplateLiteral(['\nbackground: black;\nborder-radius: 3px;\ncolor: white;\nfont-size: .75rem;\nline-height: 1.4;\npadding: .75em;\ntext-align: center;\n'], ['\nbackground: black;\nborder-radius: 3px;\ncolor: white;\nfont-size: .75rem;\nline-height: 1.4;\npadding: .75em;\ntext-align: center;\n']),
-    _templateObject22 = _taggedTemplateLiteral(['\nmin-width: 120px;\nmax-width: 210px;\nposition: absolute;\ntop: 100%;\n  left: 40%;\n  padding-top: 9px;\n  transform: translateX(-100%);\n&::after {\n  content: \'\';\n  position: absolute;\n  border-left: 9px solid transparent;\n  border-right: 9px solid transparent;\n  border-bottom: 9px solid black;\n  top: 0%;\n  left: 50%;\n  transform: translateX(-100%);\n}\n'], ['\nmin-width: 120px;\nmax-width: 210px;\nposition: absolute;\ntop: 100%;\n  left: 40%;\n  padding-top: 9px;\n  transform: translateX(-100%);\n&::after {\n  content: \'\';\n  position: absolute;\n  border-left: 9px solid transparent;\n  border-right: 9px solid transparent;\n  border-bottom: 9px solid black;\n  top: 0%;\n  left: 50%;\n  transform: translateX(-100%);\n}\n']),
-    _templateObject23 = _taggedTemplateLiteral(['\n  position: relative;\n'], ['\n  position: relative;\n']);
+    _templateObject12 = _taggedTemplateLiteral(['\nfont-size: 11px;\nmargin: 6px;\npadding:0px;\nfont-weight: none;\nline-style:none;\nletter-spacing: 0.2px;\n'], ['\nfont-size: 11px;\nmargin: 6px;\npadding:0px;\nfont-weight: none;\nline-style:none;\nletter-spacing: 0.2px;\n']),
+    _templateObject13 = _taggedTemplateLiteral(['\nheight: 9px;\nwidth: 9px;\nbackground-color: #ffd700;\nborder-radius: 50%;\ndisplay: inline-block;\nfloat: right;\nmargin-right: 10px;\n'], ['\nheight: 9px;\nwidth: 9px;\nbackground-color: #ffd700;\nborder-radius: 50%;\ndisplay: inline-block;\nfloat: right;\nmargin-right: 10px;\n']),
+    _templateObject14 = _taggedTemplateLiteral(['\nheight: 4px;\nwidth: 4px;\nbackground-color: #B0B0B0;\nborder-radius: 50%;\ndisplay: inline-block;\n'], ['\nheight: 4px;\nwidth: 4px;\nbackground-color: #B0B0B0;\nborder-radius: 50%;\ndisplay: inline-block;\n']),
+    _templateObject15 = _taggedTemplateLiteral(['\nfont-weight: bold;\nmargin: 0\n'], ['\nfont-weight: bold;\nmargin: 0\n']),
+    _templateObject16 = _taggedTemplateLiteral(['\ncolor: black;\nfont-weight: normal;\n&:hover {\n  opacity: none;\n  }\n'], ['\ncolor: black;\nfont-weight: normal;\n&:hover {\n  opacity: none;\n  }\n']),
+    _templateObject17 = _taggedTemplateLiteral(['\ncolor: #346eeb;\nline-height: 0;\nfont-weight: 0;\ncursor: pointer;\n'], ['\ncolor: #346eeb;\nline-height: 0;\nfont-weight: 0;\ncursor: pointer;\n']),
+    _templateObject18 = _taggedTemplateLiteral(['\nfont-size: 15px;\n&:hover {\n  opacity: 0.6;\n  }\n'], ['\nfont-size: 15px;\n&:hover {\n  opacity: 0.6;\n  }\n']),
+    _templateObject19 = _taggedTemplateLiteral(['\nfont-family: \'Material Icons\';\nfont-weight: normal;\nfont-style: normal;\nfont-size: 15px;  /* Preferred icon size */\ndisplay: inline-block;\nline-height: 1;\ntext-transform: none;\nletter-spacing: normal;\nword-wrap: normal;\nwhite-space: nowrap;\ndirection: ltr;\n'], ['\nfont-family: \'Material Icons\';\nfont-weight: normal;\nfont-style: normal;\nfont-size: 15px;  /* Preferred icon size */\ndisplay: inline-block;\nline-height: 1;\ntext-transform: none;\nletter-spacing: normal;\nword-wrap: normal;\nwhite-space: nowrap;\ndirection: ltr;\n']),
+    _templateObject20 = _taggedTemplateLiteral(['\ncursor: pointer;\ncolor: #121212;\nfont-weight: bold;\npadding: 0px;\n\n'], ['\ncursor: pointer;\ncolor: #121212;\nfont-weight: bold;\npadding: 0px;\n\n']),
+    _templateObject21 = _taggedTemplateLiteral(['\n\n\n'], ['\n\n\n']),
+    _templateObject22 = _taggedTemplateLiteral(['\ncolor : #242625\nmarging-top:0\n\n'], ['\ncolor : #242625\nmarging-top:0\n\n']),
+    _templateObject23 = _taggedTemplateLiteral(['\nmargin-left: 250px;\n'], ['\nmargin-left: 250px;\n']),
+    _templateObject24 = _taggedTemplateLiteral(['\nborder-bottom: dotted;\nborder-color:silver;\n'], ['\nborder-bottom: dotted;\nborder-color:silver;\n']),
+    _templateObject25 = _taggedTemplateLiteral(['\nbackground: black;\nborder-radius: 3px;\ncolor: white;\nfont-size: .75rem;\nline-height: 1.4;\npadding: .75em;\ntext-align: center;\nfont- family: font-family: "Open Sans", Tahoma, Geneva, sans-serif;\n'], ['\nbackground: black;\nborder-radius: 3px;\ncolor: white;\nfont-size: .75rem;\nline-height: 1.4;\npadding: .75em;\ntext-align: center;\nfont- family: font-family: "Open Sans", Tahoma, Geneva, sans-serif;\n']),
+    _templateObject26 = _taggedTemplateLiteral(['\nmin-width: 120px;\nmax-width: 210px;\nposition: absolute;\nborder-radius: 5px;\ntop: 100%;\n  left: 40%;\n  padding-top: 9px;\n  transform: translateX(-100%);\n&::after {\n  content: \'\';\n  position: absolute;\n  border-left: 9px solid transparent;\n  border-right: 9px solid transparent;\n  border-bottom: 9px solid black;\n  top: 0%;\n  left: 50%;\n  transform: translateX(-100%);\n}\n'], ['\nmin-width: 120px;\nmax-width: 210px;\nposition: absolute;\nborder-radius: 5px;\ntop: 100%;\n  left: 40%;\n  padding-top: 9px;\n  transform: translateX(-100%);\n&::after {\n  content: \'\';\n  position: absolute;\n  border-left: 9px solid transparent;\n  border-right: 9px solid transparent;\n  border-bottom: 9px solid black;\n  top: 0%;\n  left: 50%;\n  transform: translateX(-100%);\n}\n']),
+    _templateObject27 = _taggedTemplateLiteral(['\n  position: relative;\n'], ['\n  position: relative;\n']),
+    _templateObject28 = _taggedTemplateLiteral(['\nbackground-color: Transparent;\nbackground-repeat:no-repeat;\nborder: none;\ncursor:pointer;\noverflow: hidden;\noutline:none;\ncolor: purple;\n'], ['\nbackground-color: Transparent;\nbackground-repeat:no-repeat;\nborder: none;\ncursor:pointer;\noverflow: hidden;\noutline:none;\ncolor: purple;\n']),
+    _templateObject29 = _taggedTemplateLiteral(['\nbackground-color: Transparent;\nbackground-repeat:no-repeat;\nborder: none;\ncursor:pointer;\noverflow: hidden;\noutline:none;\ncolor: #346eeb;\n'], ['\nbackground-color: Transparent;\nbackground-repeat:no-repeat;\nborder: none;\ncursor:pointer;\noverflow: hidden;\noutline:none;\ncolor: #346eeb;\n']);
 
 var _styledComponents = __webpack_require__(59);
 
@@ -683,23 +689,31 @@ var SpanOne = exports.SpanOne = _styledComponents2.default.span(_templateObject1
 var ImageNearby = exports.ImageNearby = _styledComponents2.default.img(_templateObject11);
 
 var Para_nearby = exports.Para_nearby = _styledComponents2.default.div(_templateObject12);
+var Dot = exports.Dot = _styledComponents2.default.p(_templateObject13);
+var Dott = exports.Dott = _styledComponents2.default.div(_templateObject14);
+var Bold = exports.Bold = _styledComponents2.default.div(_templateObject15);
 
 //Walkscore
-var SpanWalkscore = exports.SpanWalkscore = _styledComponents2.default.span(_templateObject13);
-var WalkscoreDiv = exports.WalkscoreDiv = _styledComponents2.default.div(_templateObject14);
-var Score = exports.Score = _styledComponents2.default.h4(_templateObject15);
+var SpanWalkscore = exports.SpanWalkscore = _styledComponents2.default.span(_templateObject16);
+var WalkscoreDiv = exports.WalkscoreDiv = _styledComponents2.default.div(_templateObject17);
+var Score = exports.Score = _styledComponents2.default.h4(_templateObject18);
+
+var Icon = exports.Icon = _styledComponents2.default.i(_templateObject19);
+
 //NeighborhoodSummary
 
-var Line = exports.Line = _styledComponents2.default.p(_templateObject16);
-var NeighborDiv = exports.NeighborDiv = _styledComponents2.default.div(_templateObject17);
-var SummaryPara = exports.SummaryPara = _styledComponents2.default.div(_templateObject18);
-var Price = exports.Price = _styledComponents2.default.span(_templateObject19);
-var Zestimate = exports.Zestimate = _styledComponents2.default.span(_templateObject20);
+var Line = exports.Line = _styledComponents2.default.p(_templateObject20);
+var NeighborDiv = exports.NeighborDiv = _styledComponents2.default.div(_templateObject21);
+var SummaryPara = exports.SummaryPara = _styledComponents2.default.div(_templateObject22);
+var Price = exports.Price = _styledComponents2.default.span(_templateObject23);
+var Zestimate = exports.Zestimate = _styledComponents2.default.span(_templateObject24);
 
 //Tooltip
-var Message = exports.Message = _styledComponents2.default.div(_templateObject21);
-var Bubble = exports.Bubble = _styledComponents2.default.span(_templateObject22);
-var Ttip = exports.Ttip = _styledComponents2.default.div(_templateObject23);
+var Message = exports.Message = _styledComponents2.default.div(_templateObject25);
+var Bubble = exports.Bubble = _styledComponents2.default.span(_templateObject26);
+var Ttip = exports.Ttip = _styledComponents2.default.div(_templateObject27);
+var WalkButton = exports.WalkButton = _styledComponents2.default.button(_templateObject28);
+var TransitButton = exports.TransitButton = _styledComponents2.default.button(_templateObject29);
 
 /***/ }),
 /* 4 */
@@ -1749,13 +1763,13 @@ var App = function (_React$Component) {
                                 'Walk Score measures how walkable an address is based on the distance to nearby amenities.'
                             ),
                             _react2.default.createElement(
-                                _style.Label,
+                                _style.WalkButton,
                                 null,
                                 'Learn how it works'
                             ),
                             _react2.default.createElement(_style.Wide, null),
                             _react2.default.createElement(
-                                _style.Label,
+                                _style.TransitButton,
                                 null,
                                 'See detailed Walk score rating'
                             )
@@ -1774,13 +1788,12 @@ var App = function (_React$Component) {
                                 'Transit Score measures how walkable an address is based on the distance to nearby amenities.'
                             ),
                             _react2.default.createElement(
-                                _style.Label,
+                                _style.WalkButton,
                                 null,
                                 'Learn how it works'
                             ),
-                            _react2.default.createElement(_style.Wide, null),
                             _react2.default.createElement(
-                                _style.Label,
+                                _style.TransitButton,
                                 null,
                                 'See detailed Walk score rating'
                             )
@@ -3463,17 +3476,22 @@ var Nearbyhomes = function Nearbyhomes(_ref) {
       _react2.default.createElement(
         _style.Para_nearby,
         null,
-        '$1,577,876',
         _react2.default.createElement(
-          'p',
+          _style.Bold,
           null,
-          '355 Bryant St Unit 209, San Francisco, CA 94107'
+          ' ',
+          '$1,577,876',
+          ' ',
+          _react2.default.createElement(_style.Dot, null)
         ),
+        '355 Bryant St Unit 209, San Francisco, CA 94107',
         _react2.default.createElement(
-          'p',
+          'div',
           null,
-          ' 1 bd  ',
+          ' 1bd ',
+          _react2.default.createElement(_style.Dott, null),
           ' 1ba  ',
+          _react2.default.createElement(_style.Dott, null),
           ' 2k sqft',
           ' '
         )
@@ -3487,18 +3505,25 @@ var Nearbyhomes = function Nearbyhomes(_ref) {
       _react2.default.createElement(
         _style.Para_nearby,
         null,
-        '$1,633,946',
         _react2.default.createElement(
-          'p',
+          _style.Bold,
           null,
-          '355 Bryant St Unit 209, San Francisco, CA 94107',
-          ' '
+          ' ',
+          '$1,633,946',
+          ' ',
+          _react2.default.createElement(_style.Dot, null)
         ),
+        '355 Bryant St Unit 209, San Francisco, CA 94107',
         _react2.default.createElement(
-          'p',
+          'div',
           null,
           ' 1 bd  ',
+          ' ',
+          _react2.default.createElement(_style.Dott, null),
+          ' ',
           ' 1ba  ',
+          ' ',
+          _react2.default.createElement(_style.Dott, null),
           ' 1.5k sqft'
         )
       )
@@ -3540,18 +3565,24 @@ var Nearbyhomestwo = function Nearbyhomestwo(_ref) {
       _react2.default.createElement(
         _style.Para_nearby,
         null,
-        '$1,577,876',
         _react2.default.createElement(
-          'p',
+          _style.Bold,
           null,
-          '355 Bryant St Unit 209, San Francisco, CA 94107'
+          ' ',
+          '$1,577,876',
+          ' ',
+          _react2.default.createElement(_style.Dot, null)
         ),
+        '355 Bryant St Unit 209, San Francisco, CA 94107',
         _react2.default.createElement(
-          'p',
+          'div',
           null,
           ' 1 bd  ',
+          _react2.default.createElement(_style.Dott, null),
           ' 1ba  ',
-          ' 2k sqft'
+          _react2.default.createElement(_style.Dott, null),
+          ' 2k sqft',
+          ' '
         )
       )
     ),
@@ -3563,17 +3594,25 @@ var Nearbyhomestwo = function Nearbyhomestwo(_ref) {
       _react2.default.createElement(
         _style.Para_nearby,
         null,
-        '$1,633,946',
         _react2.default.createElement(
-          'p',
+          _style.Bold,
           null,
-          '355 Bryant St Unit 209, San Francisco, CA 94107'
+          ' ',
+          '$1,633,946',
+          ' ',
+          _react2.default.createElement(_style.Dot, null)
         ),
+        '355 Bryant St Unit 209, San Francisco, CA 94107',
         _react2.default.createElement(
-          'p',
+          'div',
           null,
           ' 1 bd  ',
+          ' ',
+          _react2.default.createElement(_style.Dott, null),
+          ' ',
           ' 1ba  ',
+          ' ',
+          _react2.default.createElement(_style.Dott, null),
           ' 1.5k sqft'
         )
       )
@@ -3611,11 +3650,7 @@ var NeighborSummary = function NeighborSummary(_ref) {
     _react2.default.createElement(
       _style.Line,
       null,
-      _react2.default.createElement(
-        _style.Zestimate,
-        null,
-        'This is a seller\'s market'
-      )
+      'This is a seller\'s market'
     ),
     'There are more interested buyers than homes for sale.',
     _react2.default.createElement(
@@ -3818,7 +3853,7 @@ exports.default = Tooltip;
 
 
 Object.defineProperty(exports, "__esModule", {
-      value: true
+    value: true
 });
 
 var _react = __webpack_require__(2);
@@ -3830,36 +3865,46 @@ var _style = __webpack_require__(3);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var WalkScore = function WalkScore(_ref) {
-      var walkscore = _ref.walkscore,
-          transitscore = _ref.transitscore,
-          showTooltip = _ref.showTooltip,
-          showdisplayTransit = _ref.showdisplayTransit;
-      return _react2.default.createElement(
-            _style.WalkscoreDiv,
-            null,
+    var walkscore = _ref.walkscore,
+        transitscore = _ref.transitscore,
+        showTooltip = _ref.showTooltip,
+        showdisplayTransit = _ref.showdisplayTransit;
+    return _react2.default.createElement(
+        _style.WalkscoreDiv,
+        null,
+        _react2.default.createElement(
+            _style.Score,
+            { onClick: showTooltip },
             _react2.default.createElement(
-                  _style.Score,
-                  { onClick: showTooltip },
-                  'Walk Score \xAE  ',
-                  walkscore,
-                  _react2.default.createElement(
-                        _style.SpanWalkscore,
-                        null,
-                        '(Very Walkable)'
-                  )
+                _style.Icon,
+                { className: 'material-icons' },
+                'directions_walk'
             ),
+            ' Walk Score \xAE  ',
+            walkscore,
             _react2.default.createElement(
-                  _style.Score,
-                  { onClick: showdisplayTransit },
-                  'Transit Score \u2122  ',
-                  transitscore,
-                  _react2.default.createElement(
-                        _style.SpanWalkscore,
-                        null,
-                        '(Good Transit)'
-                  )
+                _style.SpanWalkscore,
+                null,
+                '(Very Walkable)'
             )
-      );
+        ),
+        _react2.default.createElement(
+            _style.Score,
+            { onClick: showdisplayTransit },
+            _react2.default.createElement(
+                _style.Icon,
+                { className: 'material-icons' },
+                'directions_transit'
+            ),
+            ' Transit Score \u2122  ',
+            transitscore,
+            _react2.default.createElement(
+                _style.SpanWalkscore,
+                null,
+                '(Good Transit)'
+            )
+        )
+    );
 };
 
 exports.default = WalkScore;
@@ -3885,9 +3930,9 @@ var _Neighborhood2 = _interopRequireDefault(_Neighborhood);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_reactDom2.default.render(_react2.default.createElement(_Neighborhood2.default, null), document.getElementsByClassName('nh')[1]);
+// ReactDOM.render (<App/> , document.getElementsByClassName('nh')[1])
 
-//  ReactDOM.render (<App/> , document.getElementById('app'));
+_reactDom2.default.render(_react2.default.createElement(_Neighborhood2.default, null), document.getElementById('app'));
 
 /***/ }),
 /* 45 */
