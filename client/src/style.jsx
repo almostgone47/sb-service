@@ -58,7 +58,7 @@ flex: 1 1 auto;
 cursor: pointer;
 `
 export const ImageNearby = styled.img `
-width: 233px;
+width: 200px;
 `
 
 export const Para_nearby = styled.div `
