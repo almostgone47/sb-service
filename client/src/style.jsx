@@ -49,7 +49,7 @@ export const Container = styled.div `
 display: flex;
 `
 export const SpanOne = styled.span `
-width:200px;
+width:250px;
 border-right: 0.2px solid silver;
 border-left: 0.2px solid silver;
 border-bottom: 3px solid #346eeb;
@@ -58,7 +58,7 @@ flex: 1 1 auto;
 cursor: pointer;
 `
 export const ImageNearby = styled.img `
-width: 200px;
+width: 250px;
 `
 
 export const Para_nearby = styled.div `
@@ -77,7 +77,7 @@ border-radius: 50%;
 display: inline-block;
 float: right;
 margin-right: 10px;
-margin-top: 4px;
+margin-top: 5px;
 `
 export const Dott = styled.div `
 height: 4px;

@@ -643,10 +643,10 @@ var _templateObject = _taggedTemplateLiteral(['\nmax-width: 500px;\nmargin: auto
     _templateObject7 = _taggedTemplateLiteral(['\nfont-family: \'Notable\', sans-serif;\nborder-bottom: 0.1px solid silver;\nfont-weight: normal;\ncolor: #000000;\npadding: 10px;\nletter-spacing: 1px;\n'], ['\nfont-family: \'Notable\', sans-serif;\nborder-bottom: 0.1px solid silver;\nfont-weight: normal;\ncolor: #000000;\npadding: 10px;\nletter-spacing: 1px;\n']),
     _templateObject8 = _taggedTemplateLiteral(['\npadding:8px;\n'], ['\npadding:8px;\n']),
     _templateObject9 = _taggedTemplateLiteral(['\ndisplay: flex;\n'], ['\ndisplay: flex;\n']),
-    _templateObject10 = _taggedTemplateLiteral(['\nwidth:200px;\nborder-right: 0.2px solid silver;\nborder-left: 0.2px solid silver;\nborder-bottom: 3px solid #346eeb;\nborder-top: 0.2px solid silver;\nflex: 1 1 auto;\ncursor: pointer;\n'], ['\nwidth:200px;\nborder-right: 0.2px solid silver;\nborder-left: 0.2px solid silver;\nborder-bottom: 3px solid #346eeb;\nborder-top: 0.2px solid silver;\nflex: 1 1 auto;\ncursor: pointer;\n']),
-    _templateObject11 = _taggedTemplateLiteral(['\nwidth: 200px;\n'], ['\nwidth: 200px;\n']),
+    _templateObject10 = _taggedTemplateLiteral(['\nwidth:250px;\nborder-right: 0.2px solid silver;\nborder-left: 0.2px solid silver;\nborder-bottom: 3px solid #346eeb;\nborder-top: 0.2px solid silver;\nflex: 1 1 auto;\ncursor: pointer;\n'], ['\nwidth:250px;\nborder-right: 0.2px solid silver;\nborder-left: 0.2px solid silver;\nborder-bottom: 3px solid #346eeb;\nborder-top: 0.2px solid silver;\nflex: 1 1 auto;\ncursor: pointer;\n']),
+    _templateObject11 = _taggedTemplateLiteral(['\nwidth: 250px;\n'], ['\nwidth: 250px;\n']),
     _templateObject12 = _taggedTemplateLiteral(['\nfont-size: 11px;\nmargin: 6px;\npadding:0px;\nfont-weight: none;\nline-style:none;\nletter-spacing: 0.2px;\n'], ['\nfont-size: 11px;\nmargin: 6px;\npadding:0px;\nfont-weight: none;\nline-style:none;\nletter-spacing: 0.2px;\n']),
-    _templateObject13 = _taggedTemplateLiteral(['\nheight: 10px;\nwidth: 10px;\nbackground-color: #ffd700;\nborder-radius: 50%;\ndisplay: inline-block;\nfloat: right;\nmargin-right: 10px;\nmargin-top: 4px;\n'], ['\nheight: 10px;\nwidth: 10px;\nbackground-color: #ffd700;\nborder-radius: 50%;\ndisplay: inline-block;\nfloat: right;\nmargin-right: 10px;\nmargin-top: 4px;\n']),
+    _templateObject13 = _taggedTemplateLiteral(['\nheight: 10px;\nwidth: 10px;\nbackground-color: #ffd700;\nborder-radius: 50%;\ndisplay: inline-block;\nfloat: right;\nmargin-right: 10px;\nmargin-top: 5px;\n'], ['\nheight: 10px;\nwidth: 10px;\nbackground-color: #ffd700;\nborder-radius: 50%;\ndisplay: inline-block;\nfloat: right;\nmargin-right: 10px;\nmargin-top: 5px;\n']),
     _templateObject14 = _taggedTemplateLiteral(['\nheight: 4px;\nwidth: 4px;\nbackground-color: #B0B0B0;\nborder-radius: 50%;\ndisplay: inline-block;\n'], ['\nheight: 4px;\nwidth: 4px;\nbackground-color: #B0B0B0;\nborder-radius: 50%;\ndisplay: inline-block;\n']),
     _templateObject15 = _taggedTemplateLiteral(['\nfont-weight: bold;\nmargin: 0\n'], ['\nfont-weight: bold;\nmargin: 0\n']),
     _templateObject16 = _taggedTemplateLiteral(['\ncolor: black;\nfont-weight: normal;\n&:hover {\n  opacity: none;\n  }\n'], ['\ncolor: black;\nfont-weight: normal;\n&:hover {\n  opacity: none;\n  }\n']),
@@ -3930,9 +3930,9 @@ var _Neighborhood2 = _interopRequireDefault(_Neighborhood);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_reactDom2.default.render(_react2.default.createElement(_Neighborhood2.default, null), document.getElementsByClassName('nh')[1]);
+// ReactDOM.render (<App/> , document.getElementsByClassName('nh')[1])
 
-//  ReactDOM.render (<App/> , document.getElementById('app'));
+_reactDom2.default.render(_react2.default.createElement(_Neighborhood2.default, null), document.getElementById('app'));
 
 /***/ }),
 /* 45 */
