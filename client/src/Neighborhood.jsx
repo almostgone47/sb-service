@@ -44,12 +44,11 @@ class App extends React.Component {
     
     //function to get data from the database 
 getNeighborhoodNumber() {
-   
     axios.get ('./listings')
     .then( (response)=>{
-    console.log(response.data[0].nearbyImage)
-    //set new state
 
+    console.log(response.data[1].address)
+    //set new state
     this.setState ({
         number : response.data[1].neighborhood,
         mapImage: response.data[0].mapImage,
@@ -59,7 +58,7 @@ getNeighborhoodNumber() {
         sqft: response.data[0].sqft,
         bedNumber: response.data[0].bedNumber,
         bathNumber: response.data[0].bathNumber,
-        address: response.data[0].bathNumber,
+        address: response.data[0].address,
         nearbyImage: response.data[0].nearbyImage
     })
   })
@@ -137,7 +136,7 @@ showLessnearbyhouse (event) {
     })
 }
     render() {
-      
+        console.log(this.state.address)
         return (
             <Body> 
             <Title>Neighborhood: {this.state.number}</Title>
@@ -173,9 +172,9 @@ showLessnearbyhouse (event) {
                 walkscore = {this.state.walk_score} transitscore = {this.transit_score} />
                 <h2>Nearby homes</h2>
                 <div>
-                    <Nearbyhomes images = {this.state.nearbyImage} />
+                    <Nearbyhomes images = {this.state.nearbyImage}  address = {this.state.address}/>
                     <Wide> </Wide>
-                    <Nearbyhomestwo images = {this.state.nearbyImage} />
+                    <Nearbyhomestwo images = {this.state.nearbyImage} address = {this.state.address}/>
                 </div>
         
                 <Label onClick ={this.onnearbyhouseClick}style = {{color: '#346eeb'}}>
@@ -188,9 +187,9 @@ showLessnearbyhouse (event) {
                     </Label>
                 {this.state.nearbyButtonMore === true &&
                         <div>
-                    <Nearbyhomes images = {this.state.nearbyImage} />
+                    <Nearbyhomes images = {this.state.nearbyImage}  address= {this.state.address}/>
                         <Wide> </Wide>
-                        <Nearbyhomestwo images = {this.state.nearbyImage} />
+                        <Nearbyhomestwo images = {this.state.nearbyImage} address = {this.state.address}/>
                         </div>
                     }
                 <Label onClick= {this.showLessnearbyhouse} style = {{color: '#346eeb'}}>
