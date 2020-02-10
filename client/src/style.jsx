@@ -6,7 +6,7 @@ max-width: 500px;
 margin: auto;
 `
 export const Image = styled.img `
-width: 510px;
+width: 450px;
 `
 export const Svg = styled.svg `
 fill: white;
@@ -49,7 +49,7 @@ export const Container = styled.div `
 display: flex;
 `
 export const SpanOne = styled.span `
-width:250px;
+width:200px;
 border-right: 0.2px solid silver;
 border-left: 0.2px solid silver;
 border-bottom: 3px solid #346eeb;
@@ -58,7 +58,7 @@ flex: 1 1 auto;
 cursor: pointer;
 `
 export const ImageNearby = styled.img `
-width: 250px;
+width: 233px;
 `
 
 export const Para_nearby = styled.div `
@@ -70,13 +70,14 @@ line-style:none;
 letter-spacing: 0.2px;
 `
 export const Dot = styled.p `
-height: 9px;
-width: 9px;
+height: 10px;
+width: 10px;
 background-color: #ffd700;
 border-radius: 50%;
 display: inline-block;
 float: right;
 margin-right: 10px;
+margin-top: 4px;
 `
 export const Dott = styled.div `
 height: 4px;
