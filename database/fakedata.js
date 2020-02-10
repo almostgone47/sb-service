@@ -38,7 +38,7 @@ let data = (num)=> {
     neighborhoodObj.address = address
 
  
-    neighborhoodObj.nearbyImage = images;
+    neighborhoodObj.nearbyImage = nearbyImages;
 
     neighborhoodArray.push(neighborhoodObj);
 

@@ -37,6 +37,7 @@ class Tooltip extends React.Component {
       let messageTransit = this.props.messageTransit
     
       return (
+     
           <Ttip>
         <span
             onMouseLeave={this.hideTooltip}
@@ -54,8 +55,12 @@ class Tooltip extends React.Component {
           <span >
               <WalkScore showTooltip = {this.showTooltip} showdisplayTransit = {this.showdisplayTransit}/>
           </span>
+         
         </span>
         </Ttip>
+        
+      
+        
       )
     }
   }
