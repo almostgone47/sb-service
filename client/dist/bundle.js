@@ -3932,9 +3932,9 @@ var _Neighborhood2 = _interopRequireDefault(_Neighborhood);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// ReactDOM.render (<App/> , document.getElementsByClassName('nh')[1])
+_reactDom2.default.render(_react2.default.createElement(_Neighborhood2.default, null), document.getElementsByClassName('nh')[1]);
 
-_reactDom2.default.render(_react2.default.createElement(_Neighborhood2.default, null), document.getElementById('app'));
+//  ReactDOM.render (<App/> , document.getElementById('app'));
 
 /***/ }),
 /* 45 */
