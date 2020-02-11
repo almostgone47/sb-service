@@ -6,7 +6,7 @@ max-width: 500px;
 margin: auto;
 `
 export const Image = styled.img `
-width: 400px;
+width: 450px;
 `
 export const Svg = styled.svg `
 fill: white;
@@ -47,19 +47,21 @@ padding:8px;
 
 export const Container = styled.div `
 display: flex;
-width: 400px;
+width: 450px;
+float: center;
 `
 export const SpanOne = styled.span `
-width:200px;
+width:225px;
 border-right: 0.2px solid silver;
 border-left: 0.2px solid silver;
 border-bottom: 3px solid #346eeb;
 border-top: 0.2px solid silver;
 flex: 1 1 auto;
 cursor: pointer;
+
 `
 export const ImageNearby = styled.img `
-width: 200px;
+width: 225px;
 `
 
 export const Para_nearby = styled.div `
