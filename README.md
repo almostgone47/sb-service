@@ -26,7 +26,15 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 - Node 6.13.0
 - etc
 
-## Development
+### CRUD
+
+Create: creates a new listing
+
+Read: retrieves all listings
+
+Update: updates individual listing using listing id
+
+Destroy: deletes listing from db
 
 ### Installing Dependencies
 
@@ -37,3 +45,4 @@ npm install -g webpack
 npm install
 ```
 
+### 
