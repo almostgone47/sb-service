@@ -13,7 +13,7 @@ let data = (num)=> {
     for (var j=0; j < nearbyImages.length; j++){
       var images = nearbyImages[j];
     }
-    for(var i=0; i<num; i++){
+    for(var i = 0; i < num; i++){
        
       var neighborhoodObj ={}
       var address= '';
