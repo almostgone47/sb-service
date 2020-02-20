@@ -1,4 +1,3 @@
-const { Pool } = require('pg');
 const faker = require('faker');
 const csvWriter = require('csv-write-stream');
 const writer = csvWriter();
