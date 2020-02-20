@@ -1565,9 +1565,10 @@ var App = function (_React$Component) {
             nearbyButtonMore: false,
             nearbyButtonLess: false,
             walkScoremessage: '',
-            transitScoremessage: ''
+            transitScoremessage: '',
+            listings: []
         };
-        _this.getNeighborhoodNumber = _this.getNeighborhoodNumber.bind(_this);
+        _this.getListings = _this.getListings.bind(_this);
         _this.onbuttonClick = _this.onbuttonClick.bind(_this);
         _this.showLess = _this.showLess.bind(_this);
         _this.onnearbyhouseClick = _this.onnearbyhouseClick.bind(_this);
@@ -1579,26 +1580,14 @@ var App = function (_React$Component) {
 
 
     _createClass(App, [{
-        key: 'getNeighborhoodNumber',
-        value: function getNeighborhoodNumber() {
+        key: 'getListings',
+        value: function getListings() {
             var _this2 = this;
 
-            _axios2.default.get('./listings').then(function (response) {
-
-                console.log(response.data[1].address);
-                //set new state
+            _axios2.default.get('/listings').then(function (response) {
                 _this2.setState({
-                    number: response.data[1].neighborhood,
-                    mapImage: response.data[0].mapImage,
-                    walk_score: response.data[0].walk_score,
-                    transit_score: response.data[0].transit_score,
-                    price: response.data[0].price,
-                    sqft: response.data[0].sqft,
-                    bedNumber: response.data[0].bedNumber,
-                    bathNumber: response.data[0].bathNumber,
-                    address: response.data[0].address,
-                    nearbyImage: response.data[0].nearbyImage
-                });
+                    listings: response.data
+                }, console.log(response.data[0]));
             }).catch(function (error) {
                 console.log(error);
             });
@@ -1606,7 +1595,7 @@ var App = function (_React$Component) {
     }, {
         key: 'componentDidMount',
         value: function componentDidMount() {
-            this.getNeighborhoodNumber();
+            this.getListings();
         }
 
         //function to use on click to see more neighborhood details
@@ -1755,7 +1744,7 @@ var App = function (_React$Component) {
                             _react2.default.createElement(
                                 'h4',
                                 null,
-                                ' WHAT IS A WALK SCORE?'
+                                'WHAT IS A WALK SCORE?'
                             ),
                             _react2.default.createElement(
                                 'p',
@@ -1825,8 +1814,7 @@ var App = function (_React$Component) {
                             _react2.default.createElement(
                                 _style.Span,
                                 null,
-                                this.state.nearbyhouse,
-                                ' '
+                                this.state.nearbyhouse
                             )
                         )
                     ),
