@@ -50,7 +50,7 @@ neighborhoodInfo.forEach(listing => {
   createListing(listing)
 });
 
-let fetch = (callback) => {
+let getAllListings = (callback) => {
   Houses.find((err, documents) => {
     if(err) {
       callback (err)
@@ -61,4 +61,4 @@ let fetch = (callback) => {
 }
 
 module.exports.createListing = createListing;
-module.exports.fetch = fetch;
+module.exports.getAllListings = getAllListings;
