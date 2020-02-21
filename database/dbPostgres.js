@@ -42,7 +42,7 @@ module.exports = {
 
     updateListing: (listingInput, callback) => {
       const dataArr = [listingInput];
-      pool.query('UPDATE listing SET neighborhood_id = ?, price = ?, sqft = ?, bed_number = ?, bath_number = ?, listing_address = ?, images = ? WHERE id = ?', dataArr, (err, data) => {
+      pool.query('UPDATE listing SET price = ? WHERE id = ?', dataArr, (err, data) => {
         if (err) {
             callback(err)
         } else {
