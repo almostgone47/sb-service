@@ -1566,36 +1566,55 @@ var App = function (_React$Component) {
             nearbyButtonLess: false,
             walkScoremessage: '',
             transitScoremessage: '',
-            listings: []
+            currListing: '',
+            nearybyHouses: []
         };
-        _this.getListings = _this.getListings.bind(_this);
+        _this.getListing = _this.getListing.bind(_this);
         _this.onbuttonClick = _this.onbuttonClick.bind(_this);
         _this.showLess = _this.showLess.bind(_this);
         _this.onnearbyhouseClick = _this.onnearbyhouseClick.bind(_this);
         _this.showLessnearbyhouse = _this.showLessnearbyhouse.bind(_this);
+        _this.getNearbyHouses = _this.getNearbyHouses.bind(_this);
         return _this;
     }
 
-    //function to get data from the database 
+    //function to get listing being looked at from the database 
 
 
     _createClass(App, [{
-        key: 'getListings',
-        value: function getListings() {
+        key: 'getListing',
+        value: function getListing() {
             var _this2 = this;
 
-            _axios2.default.get('/listings').then(function (response) {
+            _axios2.default.get('/listing/9069232').then(function (response) {
                 _this2.setState({
-                    listings: response.data
-                }, console.log(response.data[0]));
+                    currListing: response.data[0]
+                });
+            }).then(function () {
+                _this2.getNearbyHouses();
             }).catch(function (error) {
-                console.log(error);
+                console.log('getListings client side error: ', error);
+            });
+        }
+        // gets nearby houses
+
+    }, {
+        key: 'getNearbyHouses',
+        value: function getNearbyHouses() {
+            var _this3 = this;
+
+            _axios2.default.get('/nearbyHouses?id=' + this.state.currListing.neighborhood_id).then(function (response) {
+                _this3.setState({
+                    nearybyHouses: response.data
+                });
+            }).catch(function (err) {
+                console.log('Error getting nearby houses: ', err);
             });
         }
     }, {
         key: 'componentDidMount',
         value: function componentDidMount() {
-            this.getListings();
+            this.getListing();
         }
 
         //function to use on click to see more neighborhood details
