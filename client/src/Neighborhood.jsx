@@ -35,30 +35,47 @@ class App extends React.Component {
             nearbyButtonLess: false,
             walkScoremessage: '',
             transitScoremessage: '',
-            listings: []
+            currListing: '',
+            nearybyHouses: []
         }
-        this.getListings = this.getListings.bind(this);
+        this.getListing = this.getListing.bind(this);
         this.onbuttonClick = this.onbuttonClick.bind(this);
         this.showLess = this.showLess.bind(this)
         this.onnearbyhouseClick = this.onnearbyhouseClick.bind(this);
         this.showLessnearbyhouse = this.showLessnearbyhouse.bind(this);
+        this.getNearbyHouses = this.getNearbyHouses.bind(this);
     }
     
-    //function to get data from the database 
-    getListings() {
-        axios.get ('/listings')
+    //function to get listing being looked at from the database 
+    getListing() {
+        axios.get ('/listing/9069232')
         .then((response) => {
             this.setState ({
-                listings: response.data
-            }, console.log(response.data[0]))
+                currListing: response.data[0]
+            })
+        })
+        .then(() => {
+            this.getNearbyHouses();
         })
         .catch( (error)=> {
-            console.log(error);
+            console.log('getListings client side error: ', error);
         })
     }
-    
+    // gets nearby houses
+    getNearbyHouses() {
+        axios.get(`/nearbyHouses?id=${this.state.currListing.neighborhood_id}`)
+        .then ((response) => {
+            this.setState({
+                nearybyHouses: response.data
+            })
+        })
+        .catch((err) => {
+            console.log('Error getting nearby houses: ', err)
+        })
+    }
+
     componentDidMount() {
-        this.getListings();
+        this.getListing();
     }
 
     //function to use on click to see more neighborhood details
