@@ -14,14 +14,6 @@ class App extends React.Component {
         this.state = {
             number: 0, 
             mapImage : '<img src="https://7-xillow.s3-us-west-1.amazonaws.com/nearbyHouse1.png" />',
-            walk_score: 0,
-            transit_score: 0,
-            price: 0,
-            sqft: 0,
-            bedNumber: 0,
-            bathNumber: 0,
-            address: '',
-            nearbyImage: '',
             buttonclicked: false,
             buttonText: 'See more neighborhood details',
             svgIconMore: <Svg ><path d="M16.003 18.626l7.081-7.081L25 13.46l-8.997 8.998-9.003-9 1.917-1.916z"/></Svg>,
@@ -36,7 +28,7 @@ class App extends React.Component {
             walkScoremessage: '',
             transitScoremessage: '',
             currListing: '',
-            nearybyHouses: []
+            nearbyHomes: []
         }
         this.getListing = this.getListing.bind(this);
         this.onbuttonClick = this.onbuttonClick.bind(this);
@@ -66,7 +58,7 @@ class App extends React.Component {
         axios.get(`/nearbyHouses?id=${this.state.currListing.neighborhood_id}`)
         .then ((response) => {
             this.setState({
-                nearybyHouses: response.data
+                nearbyHomes: response.data
             })
         })
         .catch((err) => {
@@ -145,12 +137,13 @@ class App extends React.Component {
     }
 
     render() {
-        console.log(this.state.address)
+        const listing = this.state.currListing;
+        const nearbyHomes = this.state.nearbyHomes;
         return (
             <Body> 
                 <Title>Neighborhood: {this.state.number}</Title>
-                <NeighborSummary number = {this.state.number} /> 
-                <Label onClick = {this.onbuttonClick} style ={{color: '#346eeb'}}>
+                <NeighborSummary number={this.state.number} /> 
+                <Label onClick={this.onbuttonClick} style={{color: '#346eeb'}}>
                     <Para>
                         {this.state.svgIconMore} 
                         <Span>{this.state.buttonText}</Span>
@@ -159,7 +152,7 @@ class App extends React.Component {
                 {this.state.buttonclicked === true && 
                 <div>
                     <h2> Neighborhood Map: </h2>
-                <Image src = {this.state.mapImage} />
+                <Image src={this.state.mapImage} />
                 
                 <Tooltip message = 
                     {<div>
@@ -177,15 +170,15 @@ class App extends React.Component {
                                 <WalkButton>Learn how it works</WalkButton>
                                 <TransitButton>See detailed Walk score rating</TransitButton>
                     </div>}
-                    walkscore={this.state.walk_score} transitscore={this.transit_score} />
+                    walkscore={listing.walk_score} transitscore={listing.transit_score} />
                     <h2>Nearby homes</h2>
                     <div>
-                        <Nearbyhomes images = {this.state.nearbyImage}  address = {this.state.address}/>
+                        <Nearbyhomes images={nearbyHomes[0].images}  address={nearbyHomes[0].address}/>
                         <Wide> </Wide>
-                        <Nearbyhomestwo images = {this.state.nearbyImage} address = {this.state.address}/>
+                        <Nearbyhomestwo images={nearbyHomes[1].images} address={nearbyHomes[1].address}/>
                     </div>
             
-                    <Label onClick ={this.onnearbyhouseClick}style = {{color: '#346eeb'}}>
+                    <Label onClick={this.onnearbyhouseClick} style={{color: '#346eeb'}}>
                         <Para>
                             {this.state.svgIconMore_nearby} 
                             <Span>{this.state.nearbyhouse}</Span>
@@ -193,14 +186,14 @@ class App extends React.Component {
                     </Label>
                     {this.state.nearbyButtonMore === true &&
                         <div>
-                            <Nearbyhomes images = {this.state.nearbyImage}  address= {this.state.address}/>
+                            <Nearbyhomes images={nearbyHomes[2].images}  address={nearbyHomes[2].adress}/>
                             <Wide> </Wide>
-                            <Nearbyhomestwo images = {this.state.nearbyImage} address = {this.state.address}/>
+                            <Nearbyhomestwo images={nearbyHomes[3].images} address={nearbyHomes[3].address}/>
                         </div>
                     }
                     <Label onClick= {this.showLessnearbyhouse} style = {{color: '#346eeb'}}>
                         <Para>
-                            {this.state. svgiconLess_neayby}
+                            {this.state.svgiconLess_neayby}
                             <Span>{this.state.nearbyhouseless}</Span>
                         </Para>
                     </Label>

@@ -22,7 +22,7 @@ pool.on('connect', () => console.log('Connected to the db'));
 module.exports = {
 
     getListing: (id, callback) => {
-      pool.query('SELECT * FROM listing WHERE id = $1::integer', [id], (err, data) => {
+      pool.query('SELECT * FROM listing LEFT JOIN neighborhood ON neighborhood.id = listing.neighborhood_id WHERE listing.id = $1::integer', [id], (err, data) => {
         if (err) {
           callback(err)
         } else {

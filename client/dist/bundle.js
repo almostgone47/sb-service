@@ -1541,14 +1541,6 @@ var App = function (_React$Component) {
         _this.state = {
             number: 0,
             mapImage: '<img src="https://7-xillow.s3-us-west-1.amazonaws.com/nearbyHouse1.png" />',
-            walk_score: 0,
-            transit_score: 0,
-            price: 0,
-            sqft: 0,
-            bedNumber: 0,
-            bathNumber: 0,
-            address: '',
-            nearbyImage: '',
             buttonclicked: false,
             buttonText: 'See more neighborhood details',
             svgIconMore: _react2.default.createElement(
@@ -1567,7 +1559,7 @@ var App = function (_React$Component) {
             walkScoremessage: '',
             transitScoremessage: '',
             currListing: '',
-            nearybyHouses: []
+            nearbyHomes: []
         };
         _this.getListing = _this.getListing.bind(_this);
         _this.onbuttonClick = _this.onbuttonClick.bind(_this);
@@ -1605,7 +1597,7 @@ var App = function (_React$Component) {
 
             _axios2.default.get('/nearbyHouses?id=' + this.state.currListing.neighborhood_id).then(function (response) {
                 _this3.setState({
-                    nearybyHouses: response.data
+                    nearbyHomes: response.data
                 });
             }).catch(function (err) {
                 console.log('Error getting nearby houses: ', err);
@@ -1723,7 +1715,8 @@ var App = function (_React$Component) {
     }, {
         key: 'render',
         value: function render() {
-            console.log(this.state.address);
+            var listing = this.state.currListing;
+            var nearbyHomes = this.state.nearbyHomes;
             return _react2.default.createElement(
                 _style.Body,
                 null,
@@ -1806,7 +1799,7 @@ var App = function (_React$Component) {
                                 'See detailed Walk score rating'
                             )
                         ),
-                        walkscore: this.state.walk_score, transitscore: this.transit_score }),
+                        walkscore: listing.walk_score, transitscore: listing.transit_score }),
                     _react2.default.createElement(
                         'h2',
                         null,
@@ -1815,13 +1808,13 @@ var App = function (_React$Component) {
                     _react2.default.createElement(
                         'div',
                         null,
-                        _react2.default.createElement(_Nearbyhomes2.default, { images: this.state.nearbyImage, address: this.state.address }),
+                        _react2.default.createElement(_Nearbyhomes2.default, { images: nearbyHomes[0].images, address: nearbyHomes[0].address }),
                         _react2.default.createElement(
                             _style.Wide,
                             null,
                             ' '
                         ),
-                        _react2.default.createElement(_Nearbyhomestwo2.default, { images: this.state.nearbyImage, address: this.state.address })
+                        _react2.default.createElement(_Nearbyhomestwo2.default, { images: nearbyHomes[1].images, address: nearbyHomes[1].address })
                     ),
                     _react2.default.createElement(
                         _style.Label,
@@ -1840,13 +1833,13 @@ var App = function (_React$Component) {
                     this.state.nearbyButtonMore === true && _react2.default.createElement(
                         'div',
                         null,
-                        _react2.default.createElement(_Nearbyhomes2.default, { images: this.state.nearbyImage, address: this.state.address }),
+                        _react2.default.createElement(_Nearbyhomes2.default, { images: nearbyHomes[2].images, address: nearbyHomes[2].adress }),
                         _react2.default.createElement(
                             _style.Wide,
                             null,
                             ' '
                         ),
-                        _react2.default.createElement(_Nearbyhomestwo2.default, { images: this.state.nearbyImage, address: this.state.address })
+                        _react2.default.createElement(_Nearbyhomestwo2.default, { images: nearbyHomes[3].images, address: nearbyHomes[3].address })
                     ),
                     _react2.default.createElement(
                         _style.Label,
