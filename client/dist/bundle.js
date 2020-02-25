@@ -1541,6 +1541,14 @@ var App = function (_React$Component) {
         _this.state = {
             number: 0,
             mapImage: '<img src="https://7-xillow.s3-us-west-1.amazonaws.com/nearbyHouse1.png" />',
+            walk_score: 0,
+            transit_score: 0,
+            price: 0,
+            sqft: 0,
+            bedNumber: 0,
+            bathNumber: 0,
+            address: '',
+            nearbyImage: '',
             buttonclicked: false,
             buttonText: 'See more neighborhood details',
             svgIconMore: _react2.default.createElement(
@@ -1558,50 +1566,36 @@ var App = function (_React$Component) {
             nearbyButtonLess: false,
             walkScoremessage: '',
             transitScoremessage: '',
-            currListing: '',
-            nearbyHomes: []
+            listings: []
         };
-        _this.getListing = _this.getListing.bind(_this);
+        _this.getListings = _this.getListings.bind(_this);
         _this.onbuttonClick = _this.onbuttonClick.bind(_this);
         _this.showLess = _this.showLess.bind(_this);
         _this.onnearbyhouseClick = _this.onnearbyhouseClick.bind(_this);
         _this.showLessnearbyhouse = _this.showLessnearbyhouse.bind(_this);
-        _this.getNearbyHomes = _this.getNearbyHomes.bind(_this);
         return _this;
     }
 
+    //function to get data from the database 
+
+
     _createClass(App, [{
-        key: 'getListing',
-        value: function getListing() {
+        key: 'getListings',
+        value: function getListings() {
             var _this2 = this;
 
-            _axios2.default.get('/listing/9069232').then(function (response) {
+            _axios2.default.get('/listings').then(function (response) {
                 _this2.setState({
-                    currListing: response.data[0]
-                });
-            }).then(function () {
-                _this2.getNearbyHomes();
-            }).catch(function (err) {
-                console.log('getListings client side error: ', err);
-            });
-        }
-    }, {
-        key: 'getNearbyHomes',
-        value: function getNearbyHomes() {
-            var _this3 = this;
-
-            _axios2.default.get('/nearbyHomes?id=' + this.state.currListing.neighborhood_id).then(function (response) {
-                _this3.setState({
-                    nearbyHomes: response.data
-                });
-            }).catch(function (err) {
-                console.log('Error getting nearby houses: ', err);
+                    listings: response.data
+                }, console.log(response.data[0]));
+            }).catch(function (error) {
+                console.log(error);
             });
         }
     }, {
         key: 'componentDidMount',
         value: function componentDidMount() {
-            this.getListing();
+            this.getListings();
         }
 
         //function to use on click to see more neighborhood details
@@ -1710,8 +1704,7 @@ var App = function (_React$Component) {
     }, {
         key: 'render',
         value: function render() {
-            var listing = this.state.currListing;
-            var nearbyHomes = this.state.nearbyHomes;
+            console.log(this.state.address);
             return _react2.default.createElement(
                 _style.Body,
                 null,
@@ -1794,7 +1787,7 @@ var App = function (_React$Component) {
                                 'See detailed Walk score rating'
                             )
                         ),
-                        walkscore: listing.walk_score, transitscore: listing.transit_score }),
+                        walkscore: this.state.walk_score, transitscore: this.transit_score }),
                     _react2.default.createElement(
                         'h2',
                         null,
@@ -1803,13 +1796,13 @@ var App = function (_React$Component) {
                     _react2.default.createElement(
                         'div',
                         null,
-                        _react2.default.createElement(_Nearbyhomes2.default, { images: nearbyHomes[0].images, address: nearbyHomes[0].address }),
+                        _react2.default.createElement(_Nearbyhomes2.default, { images: this.state.nearbyImage, address: this.state.address }),
                         _react2.default.createElement(
                             _style.Wide,
                             null,
                             ' '
                         ),
-                        _react2.default.createElement(_Nearbyhomestwo2.default, { images: nearbyHomes[1].images, address: nearbyHomes[1].address })
+                        _react2.default.createElement(_Nearbyhomestwo2.default, { images: this.state.nearbyImage, address: this.state.address })
                     ),
                     _react2.default.createElement(
                         _style.Label,
@@ -1828,13 +1821,13 @@ var App = function (_React$Component) {
                     this.state.nearbyButtonMore === true && _react2.default.createElement(
                         'div',
                         null,
-                        _react2.default.createElement(_Nearbyhomes2.default, { images: nearbyHomes[2].images, address: nearbyHomes[2].adress }),
+                        _react2.default.createElement(_Nearbyhomes2.default, { images: this.state.nearbyImage, address: this.state.address }),
                         _react2.default.createElement(
                             _style.Wide,
                             null,
                             ' '
                         ),
-                        _react2.default.createElement(_Nearbyhomestwo2.default, { images: nearbyHomes[3].images, address: nearbyHomes[3].address })
+                        _react2.default.createElement(_Nearbyhomestwo2.default, { images: this.state.nearbyImage, address: this.state.address })
                     ),
                     _react2.default.createElement(
                         _style.Label,
