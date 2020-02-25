@@ -16,7 +16,6 @@ const seedData = (num) => {
   //     walk_score: faker.random.number(100)
   //   })
   // }
-  
   writer.pipe(fs.createWriteStream('dataListing.csv'));
   let neighborhoodId = 1;
   for (let j = 1; j < num; j++) {

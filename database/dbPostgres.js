@@ -8,7 +8,7 @@ if (process.env.NODE_ENV === 'test') {
 if (process.env.NODE_ENV === 'production') {
   hostname = 'database';
 }
-// Postgres login information
+
 const pool = new Pool({
   host: hostname,
   user: 'postgres',
@@ -16,19 +16,63 @@ const pool = new Pool({
   password: null,
   port: 5432,
 });
-// Event listener for DB connection open
+
 pool.on('connect', () => console.log('Connected to the db'));
 
 module.exports = {
-    getAllListings: (callback) => {
-        pool.query('SELECT * FROM listings', (err, data) => {
-            if (err) {
-                callback(err)
-            } else {
-                callback(null, data)
-            }
-        })
+
+    getListing: (id, callback) => {
+      pool.query('SELECT * FROM listing LEFT JOIN neighborhood ON neighborhood.id = listing.neighborhood_id WHERE listing.id = $1::integer', [id], (err, data) => {
+        if (err) {
+          callback(err)
+        } else {
+          callback(null, data)
+        }
+      })
+    },
+
+    deleteListing: (id, callback) => {
+      pool.query('DELETE FROM listing WHERE id = $1::integer', [id], (err, data) => {
+        if (err) {
+          callback(err)
+        } else {
+          callback(null, data)
+        }
+      })
+    },
+
+    updateListing: (listingInput, callback) => {
+      const dataArr = [listingInput];
+      pool.query('UPDATE listing SET price = ? WHERE id = $1::integer', dataArr, (err, data) => {
+        if (err) {
+          callback(err)
+        } else {
+          callback(null, data)
+        }
+      })
+    },
+
+    addListing: (listingInput, callback) => {
+      const dataArr = [listingInput];
+      pool.query('INSERT INTO listing(neighborhood_id, price, sqft, bed_number, bath_number, listing_address, images) VALUES ?', dataArr, (err, data) => {
+        if (err) {
+          callback(err)
+        } else {
+          callback(null, data)
+        }
+      })
+    },
+    
+    getNearbyHomes: (neighboroodId, callback) => {
+      pool.query('SELECT * FROM listing WHERE neighborhood_id = $1::integer', [neighboroodId], (err, data) => {
+        if (err) {
+          callback(err)
+        } else {
+          callback(null, data)
+        }
+      })
     }
+
 };
 
 
