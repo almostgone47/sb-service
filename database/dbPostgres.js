@@ -63,7 +63,7 @@ module.exports = {
       })
     },
     
-    getNearbyHouses: (neighboroodId, callback) => {
+    getNearbyHomes: (neighboroodId, callback) => {
       pool.query('SELECT * FROM listing WHERE neighborhood_id = $1::integer', [neighboroodId], (err, data) => {
         if (err) {
           callback(err)

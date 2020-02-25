@@ -1566,12 +1566,9 @@ var App = function (_React$Component) {
         _this.showLess = _this.showLess.bind(_this);
         _this.onnearbyhouseClick = _this.onnearbyhouseClick.bind(_this);
         _this.showLessnearbyhouse = _this.showLessnearbyhouse.bind(_this);
-        _this.getNearbyHouses = _this.getNearbyHouses.bind(_this);
+        _this.getNearbyHomes = _this.getNearbyHomes.bind(_this);
         return _this;
     }
-
-    //function to get listing being looked at from the database 
-
 
     _createClass(App, [{
         key: 'getListing',
@@ -1583,19 +1580,17 @@ var App = function (_React$Component) {
                     currListing: response.data[0]
                 });
             }).then(function () {
-                _this2.getNearbyHouses();
-            }).catch(function (error) {
-                console.log('getListings client side error: ', error);
+                _this2.getNearbyHomes();
+            }).catch(function (err) {
+                console.log('getListings client side error: ', err);
             });
         }
-        // gets nearby houses
-
     }, {
-        key: 'getNearbyHouses',
-        value: function getNearbyHouses() {
+        key: 'getNearbyHomes',
+        value: function getNearbyHomes() {
             var _this3 = this;
 
-            _axios2.default.get('/nearbyHouses?id=' + this.state.currListing.neighborhood_id).then(function (response) {
+            _axios2.default.get('/nearbyHomes?id=' + this.state.currListing.neighborhood_id).then(function (response) {
                 _this3.setState({
                     nearbyHomes: response.data
                 });

@@ -35,27 +35,26 @@ class App extends React.Component {
         this.showLess = this.showLess.bind(this)
         this.onnearbyhouseClick = this.onnearbyhouseClick.bind(this);
         this.showLessnearbyhouse = this.showLessnearbyhouse.bind(this);
-        this.getNearbyHouses = this.getNearbyHouses.bind(this);
+        this.getNearbyHomes = this.getNearbyHomes.bind(this);
     }
     
-    //function to get listing being looked at from the database 
     getListing() {
-        axios.get ('/listing/9069232')
+        axios.get('/listing/9069232')
         .then((response) => {
             this.setState ({
                 currListing: response.data[0]
             })
         })
         .then(() => {
-            this.getNearbyHouses();
+            this.getNearbyHomes();
         })
-        .catch( (error)=> {
-            console.log('getListings client side error: ', error);
+        .catch((err)=> {
+            console.log('getListings client side error: ', err);
         })
     }
-    // gets nearby houses
-    getNearbyHouses() {
-        axios.get(`/nearbyHouses?id=${this.state.currListing.neighborhood_id}`)
+
+    getNearbyHomes() {
+        axios.get(`/nearbyHomes?id=${this.state.currListing.neighborhood_id}`)
         .then ((response) => {
             this.setState({
                 nearbyHomes: response.data

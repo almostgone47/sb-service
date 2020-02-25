@@ -10,7 +10,6 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(express.json())
 app.use(express.static(path.join(__dirname, '../client/dist')));
-// app.use('/listing/:id', express.static(path.join(__dirname, '../client/dist')));
 
 app.get('/listing/:id', function (req, res) {
   db.getListing(req.params.id, (err, results) => {
@@ -22,8 +21,9 @@ app.get('/listing/:id', function (req, res) {
   });
 });
 
-app.get('/nearbyHouses', function (req, res) {
-  db.getNearbyHouses(req.query.id, (err, results) => {
+app.get('/nearbyHomes', function (req, res) {
+  console.log('/nearybyHomes: ', req.query.id)
+  db.getNearbyHomes(req.query.id, (err, results) => {
     if (err) {
       console.log(err)
     } else {
