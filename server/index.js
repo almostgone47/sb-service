@@ -16,6 +16,7 @@ app.get('/listing/:id', function (req, res) {
     if (err) {
       console.log(err)
     } else {
+      console.log(results.rows)
       res.send(results.rows)
     }
   });
@@ -27,6 +28,7 @@ app.get('/nearbyHomes', function (req, res) {
     if (err) {
       console.log(err)
     } else {
+      console.log(results.rows)
       res.send(results.rows)
     }
   });
