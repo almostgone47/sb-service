@@ -3,6 +3,7 @@
  *  `psql --username=postgres -d mydb < schemaPostgres.sql`
  *  - `mydb` is the database (created beforehand)
  *  - `postgres` is the role (created beforehand)
+ *  - 'password on ec2 = mypgdb1234
  *  Note: need to figure out hardening of DB
  *  - `ALTER ROLE <username> WITH ENCRYPTED PASSWORD '<password>';`
  *  - `\conninfo` => You are connected to database "eightbnb" as user "postgres"

@@ -1,6 +1,4 @@
 const faker = require('faker');
-const csvWriter = require('csv-write-stream');
-const writer = csvWriter();
 const fs = require('fs');
 
 const nearbyImages = ['https://7-xillow.s3-us-west-1.amazonaws.com/img1.jpeg', 'https://7-xillow.s3-us-west-1.amazonaws.com/img2.jpeg',
@@ -8,34 +6,74 @@ const nearbyImages = ['https://7-xillow.s3-us-west-1.amazonaws.com/img1.jpeg', '
 'https://7-xillow.s3-us-west-1.amazonaws.com/img6.jpeg', 'https://7-xillow.s3-us-west-1.amazonaws.com/img7.jpeg'
 ]
 
-const seedData = (num) => {
-  // writer.pipe(fs.createWriteStream('dataNeighborhood.csv'));
-  // for (let i = 0; i < num/8; i++) {
-  //   writer.write({
-  //     transit_score: faker.random.number(100),
-  //     walk_score: faker.random.number(100)
-  //   })
-  // }
-  writer.pipe(fs.createWriteStream('dataListing.csv'));
-  let neighborhoodId = 1;
-  for (let j = 1; j < num; j++) {
-    if (j % 8 === 0) {
-      neighborhoodId++;
+const writeNeighborhoods = fs.createWriteStream('dataNeighborhood.csv');
+writeNeighborhoods.write('transit_score,walk_score\n', 'utf8');
+
+function writeTenMillionNeighborhoods(writer, encoding, callback) {
+  let i = 1250000;
+  function write() {
+    let ok = true;
+    do {
+      i -= 1;
+      const transit_score = faker.random.number(100)
+      const walk_score = faker.random.number(100)
+      const data = `${transit_score},${walk_score}\n`;
+      if (i === 0) {
+        writer.write(data, encoding, callback);
+      } else {
+        ok = writer.write(data, encoding);
+      }
+    } while (i > 0 && ok);
+    if (i > 0) {
+      writer.once('drain', write);
     }
-    writer.write({
-      neighborhood_id: neighborhoodId,
-      price:faker.commerce.price(1000000),
-      sqft:faker.random.number(6000),
-      bed_number:faker.random.number(6),
-      bath_number:faker.random.number(6),
-      listing_address: faker.address.streetAddress("###"),
-      images:nearbyImages[Math.floor(Math.random() * 7)]
-    })
-    console.log()
   }
-  writer.end();
-  console.log('done');
+write()
 }
-seedData(10000000);
+
+writeTenMillionNeighborhoods(writeNeighborhoods, 'utf-8', () => {
+  writeNeighborhoods.end();
+});
+
+const writeListings = fs.createWriteStream('dataListing.csv');
+writeListings.write('neighborhood_id,price,sqft,bed_number,bath_number,listing_address,images\n', 'utf8');
+
+let neighborhoodId = 1;
+
+function writeTenMillionListings(writer, encoding, callback) {
+  let i = 10000000;
+  function write() {
+    let ok = true;
+    do {
+      i -= 1;
+      if (i % 8 === 0) {
+        neighborhoodId++;
+      }
+      const neighborhood_id = neighborhoodId
+      const price = faker.commerce.price(1000000)
+      const sqft = faker.random.number(6000)
+      const bed_number = faker.random.number(6)
+      const bath_number = faker.random.number(6)
+      const listing_address = faker.address.streetAddress("###")
+      const images = nearbyImages[Math.floor(Math.random() * 7)]
+      const data = `${neighborhood_id},${price},${sqft},${bed_number},${bath_number},${listing_address},${images}\n`;
+      if (i === 0) {
+        writer.write(data, encoding, callback);
+      } else {
+        ok = writer.write(data, encoding);
+      }
+    } while (i > 0 && ok);
+    if (i > 0) {
+      writer.once('drain', write);
+    }
+  }
+write()
+}
+
+writeTenMillionListings(writeListings, 'utf-8', () => {
+  writeListings.end();
+});
+
+console.log('done seeding!');
 
 // 'https://7-xillow.s3-us-west-1.amazonaws.com/clearImage1.png'  this is the map view
