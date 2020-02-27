@@ -33,18 +33,10 @@ app.get('/nearbyHomes', function (req, res) {
 });
 
 app.post('/listings', function (req, res) {
-<<<<<<< HEAD
-  db.addListing((err, results) => {
-    if(err) {
-      console.log(err)
-    } else {
-      console.log(results[0])
-=======
   db.addListing(req.body, (err, results) => {
     if(err) {
       console.log(err)
     } else {
->>>>>>> no_csv
       res.send(results)
     }
   });
@@ -55,11 +47,7 @@ app.patch('/listings/:id', function (req, res) {
     if(err) {
       console.log(err)
     } else {
-<<<<<<< HEAD
-      console.log(results[0])
-=======
       console.log(results)
->>>>>>> no_csv
       res.send(results)
     }
   });
@@ -70,11 +58,7 @@ app.delete('/listings/:id', function (req, res) {
     if(err) {
       console.log(err)
     } else {
-<<<<<<< HEAD
-      console.log(results[0])
-=======
       console.log(results)
->>>>>>> no_csv
       res.send(results)
     }
   });
