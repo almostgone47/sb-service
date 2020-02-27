@@ -12,6 +12,7 @@ app.use(express.json())
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
 app.get('/listing/:id', function (req, res) {
+  console.log('get request: ', req.params.id)
   db.getListing(req.params.id, (err, results) => {
     if (err) {
       console.log(err)

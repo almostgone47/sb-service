@@ -1,3 +1,5 @@
 node_modules
 .DS_Store
 newrelic_agent.log
+dataListing.csv
+dataNeighborhood.csv

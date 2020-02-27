@@ -1575,12 +1575,14 @@ var App = function (_React$Component) {
         value: function getListing() {
             var _this2 = this;
 
-            _axios2.default.get('/listing/9069232').then(function (response) {
+            _axios2.default.get('/listing/2').then(function (response) {
                 _this2.setState({
                     currListing: response.data[0]
                 });
             }).then(function () {
                 _this2.getNearbyHomes();
+            }).then(function () {
+                console.log('CurrLIsting: ', _this2.state.currListing, 'Neighbors: ', _this2.state.nearbyHomes);
             }).catch(function (err) {
                 console.log('getListings client side error: ', err);
             });

@@ -39,7 +39,7 @@ class App extends React.Component {
     }
     
     getListing() {
-        axios.get('/listing/9069232')
+        axios.get('/listing/2')
         .then((response) => {
             this.setState ({
                 currListing: response.data[0]
