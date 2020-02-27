@@ -48,6 +48,9 @@ class App extends React.Component {
         .then(() => {
             this.getNearbyHomes();
         })
+        .then(() => {
+            console.log('CurrLIsting: ', this.state.currListing, 'Neighbors: ', this.state.nearbyHomes);
+        })
         .catch((err)=> {
             console.log('getListings client side error: ', err);
         })
