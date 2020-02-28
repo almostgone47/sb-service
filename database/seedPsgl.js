@@ -72,11 +72,11 @@ function writeTenMillionListings(writer, encoding, callback) {
     }
   }
 write()
-console.log('done seeding!');
+
 }
 
 writeTenMillionListings(writeListings, 'utf-8', () => {
   writeListings.end();
 });
-
+console.log('done seeding!');
 // 'https://7-xillow.s3-us-west-1.amazonaws.com/clearImage1.png'  this is the map view
