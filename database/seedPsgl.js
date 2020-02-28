@@ -11,11 +11,12 @@ writeNeighborhoods.write('id,transit_score,walk_score\n', 'utf8');
 
 function writeTenMillionNeighborhoods(writer, encoding, callback) {
   let i = 1250002;
+  let id = 0;
   function write() {
     let ok = true;
     do {
       i -= 1;
-      const id = i;
+      id++;
       const transit_score = faker.random.number(100)
       const walk_score = faker.random.number(100)
       const data = `${id},${transit_score},${walk_score}\n`;
@@ -43,6 +44,7 @@ let neighborhoodId = 1;
 
 function writeTenMillionListings(writer, encoding, callback) {
   let i = 10000000;
+  let id = 0;
   function write() {
     let ok = true;
     do {
@@ -50,7 +52,7 @@ function writeTenMillionListings(writer, encoding, callback) {
       if (i % 8 === 0) {
         neighborhoodId++;
       }
-      const id = i;
+      id++;
       const neighborhood_id = neighborhoodId
       const price = faker.commerce.price(1000000)
       const sqft = faker.random.number(6000)
