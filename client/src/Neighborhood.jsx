@@ -58,10 +58,7 @@ class App extends React.Component {
         .then ((response) => {
             this.setState({
                 nearbyHomes: response.data
-            }, console.log('CurrLIsting: ', this.state.currListing, 'Neighbors: ', this.state.nearbyHomes))
-        })
-        .then(() => {
-            console.log('CurrLIsting: ', this.state.currListing, 'Neighbors: ', this.state.nearbyHomes);
+            })
         })
         .catch((err) => {
             console.log('Error getting nearby houses: ', err)

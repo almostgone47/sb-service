@@ -1593,9 +1593,7 @@ var App = function (_React$Component) {
             _axios2.default.get('/nearbyHomes?id=' + this.state.currListing.neighborhood_id).then(function (response) {
                 _this3.setState({
                     nearbyHomes: response.data
-                }, console.log('CurrLIsting: ', _this3.state.currListing, 'Neighbors: ', _this3.state.nearbyHomes));
-            }).then(function () {
-                console.log('CurrLIsting: ', _this3.state.currListing, 'Neighbors: ', _this3.state.nearbyHomes);
+                });
             }).catch(function (err) {
                 console.log('Error getting nearby houses: ', err);
             });

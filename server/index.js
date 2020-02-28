@@ -12,24 +12,20 @@ app.use(express.json())
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
 app.get('/listing/:id', function (req, res) {
-  console.log('get request: ', req.params.id)
   db.getListing(req.params.id, (err, results) => {
     if (err) {
       console.log(err)
     } else {
-      console.log(results.rows)
       res.send(results.rows)
     }
   });
 });
 
 app.get('/nearbyHomes', function (req, res) {
-  console.log('/nearybyHomes: ', req.query.id)
   db.getNearbyHomes(req.query.id, (err, results) => {
     if (err) {
       console.log(err)
     } else {
-      console.log(results.rows)
       res.send(results.rows)
     }
   });
@@ -50,7 +46,6 @@ app.patch('/listings/:id', function (req, res) {
     if(err) {
       console.log(err)
     } else {
-      console.log(results)
       res.send(results)
     }
   });
@@ -61,7 +56,6 @@ app.delete('/listings/:id', function (req, res) {
     if(err) {
       console.log(err)
     } else {
-      console.log(results)
       res.send(results)
     }
   });
