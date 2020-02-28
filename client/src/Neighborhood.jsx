@@ -39,7 +39,7 @@ class App extends React.Component {
     }
     
     getListing() {
-        axios.get('/listing/2')
+        axios.get('/listing/1')
         .then((response) => {
             this.setState ({
                 currListing: response.data[0]
@@ -47,9 +47,6 @@ class App extends React.Component {
         })
         .then(() => {
             this.getNearbyHomes();
-        })
-        .then(() => {
-            console.log('CurrLIsting: ', this.state.currListing, 'Neighbors: ', this.state.nearbyHomes);
         })
         .catch((err)=> {
             console.log('getListings client side error: ', err);
@@ -61,7 +58,10 @@ class App extends React.Component {
         .then ((response) => {
             this.setState({
                 nearbyHomes: response.data
-            })
+            }, console.log('CurrLIsting: ', this.state.currListing, 'Neighbors: ', this.state.nearbyHomes))
+        })
+        .then(() => {
+            console.log('CurrLIsting: ', this.state.currListing, 'Neighbors: ', this.state.nearbyHomes);
         })
         .catch((err) => {
             console.log('Error getting nearby houses: ', err)

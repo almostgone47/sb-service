@@ -7,17 +7,18 @@ const nearbyImages = ['https://7-xillow.s3-us-west-1.amazonaws.com/img1.jpeg', '
 ]
 
 const writeNeighborhoods = fs.createWriteStream('dataNeighborhood.csv');
-writeNeighborhoods.write('transit_score,walk_score\n', 'utf8');
+writeNeighborhoods.write('id,transit_score,walk_score\n', 'utf8');
 
 function writeTenMillionNeighborhoods(writer, encoding, callback) {
-  let i = 1250000;
+  let i = 1250002;
   function write() {
     let ok = true;
     do {
       i -= 1;
+      const id = i;
       const transit_score = faker.random.number(100)
       const walk_score = faker.random.number(100)
-      const data = `${transit_score},${walk_score}\n`;
+      const data = `${id},${transit_score},${walk_score}\n`;
       if (i === 0) {
         writer.write(data, encoding, callback);
       } else {
@@ -36,7 +37,7 @@ writeTenMillionNeighborhoods(writeNeighborhoods, 'utf-8', () => {
 });
 
 const writeListings = fs.createWriteStream('dataListing.csv');
-writeListings.write('neighborhood_id,price,sqft,bed_number,bath_number,listing_address,images\n', 'utf8');
+writeListings.write('id,neighborhood_id,price,sqft,bed_number,bath_number,listing_address,images\n', 'utf8');
 
 let neighborhoodId = 1;
 
@@ -49,6 +50,7 @@ function writeTenMillionListings(writer, encoding, callback) {
       if (i % 8 === 0) {
         neighborhoodId++;
       }
+      const id = i;
       const neighborhood_id = neighborhoodId
       const price = faker.commerce.price(1000000)
       const sqft = faker.random.number(6000)
@@ -56,7 +58,7 @@ function writeTenMillionListings(writer, encoding, callback) {
       const bath_number = faker.random.number(6)
       const listing_address = faker.address.streetAddress("###")
       const images = nearbyImages[Math.floor(Math.random() * 7)]
-      const data = `${neighborhood_id},${price},${sqft},${bed_number},${bath_number},${listing_address},${images}\n`;
+      const data = `${id},${neighborhood_id},${price},${sqft},${bed_number},${bath_number},${listing_address},${images}\n`;
       if (i === 0) {
         writer.write(data, encoding, callback);
       } else {

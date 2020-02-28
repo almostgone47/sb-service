@@ -12,6 +12,7 @@
   "scripts": {
     "react-dev": "webpack --watch",
     "start": "nodemon server/index.js",
+    "migrate": "psql --username=postgres -d mydb < schemaPostgres.sql",
     "seed": "node ./database/seedPsgl.js",
     "test": "jest"
   },

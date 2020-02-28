@@ -9,10 +9,10 @@
  *                   via socket in "/tmp" at port "5432"
  */
 
-DROP TABLE IF EXISTS listing CASCADE;
-DROP TABLE IF EXISTS neighborhood CASCADE;
+DROP TABLE IF EXISTS listings CASCADE;
+DROP TABLE IF EXISTS neighborhoods CASCADE;
 
-CREATE TABLE "listing" (
+CREATE TABLE "listings" (
 	"id" serial NOT NULL,
 	"neighborhood_id" bigint NOT NULL,
 	"price" money NOT NULL,
@@ -21,17 +21,17 @@ CREATE TABLE "listing" (
 	"bath_number" int NOT NULL,
 	"listing_address" TEXT NOT NULL,
 	"images" TEXT,
-	CONSTRAINT "listing_pk" PRIMARY KEY ("id")
+	CONSTRAINT "listings_pk" PRIMARY KEY ("id")
 ) WITH (
   OIDS=FALSE
 );
 
-CREATE TABLE "neighborhood" (
+CREATE TABLE "neighborhoods" (
 	"id" serial NOT NULL,
 	"transit_score" int NOT NULL,
 	"walk_score" int NOT NULL,
-	CONSTRAINT "neighborhood_pk" PRIMARY KEY ("id")
+	CONSTRAINT "neighborhoods_pk" PRIMARY KEY ("id")
 ) WITH (
   OIDS=FALSE
 );
-ALTER TABLE "listing" ADD CONSTRAINT "listing_fk0" FOREIGN KEY ("neighborhood_id") REFERENCES "neighborhood"("id");
+ALTER TABLE "listings" ADD CONSTRAINT "listings_fk0" FOREIGN KEY ("neighborhood_id") REFERENCES "neighborhoods"("id");

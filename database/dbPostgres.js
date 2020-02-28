@@ -22,7 +22,7 @@ pool.on('connect', () => console.log('Connected to the db'));
 module.exports = {
 
     getListing: (id, callback) => {
-      pool.query('SELECT * FROM listing LEFT JOIN neighborhood ON neighborhood.id = listing.neighborhood_id WHERE listing.id = $1::integer', [id], (err, data) => {
+      pool.query('SELECT * FROM listings LEFT JOIN neighborhoods ON neighborhoods.id = listings.neighborhood_id WHERE listings.id = $1::integer', [id], (err, data) => {
         if (err) {
           callback(err)
         } else {
@@ -32,7 +32,7 @@ module.exports = {
     },
 
     deleteListing: (id, callback) => {
-      pool.query('DELETE FROM listing WHERE id = $1::integer', [id], (err, data) => {
+      pool.query('DELETE FROM listings WHERE id = $1::integer', [id], (err, data) => {
         if (err) {
           callback(err)
         } else {
@@ -43,7 +43,7 @@ module.exports = {
 
     updateListing: (listingInput, callback) => {
       const dataArr = [listingInput];
-      pool.query('UPDATE listing SET price = ? WHERE id = $1::integer', dataArr, (err, data) => {
+      pool.query('UPDATE listings SET price = ? WHERE id = $1::integer', dataArr, (err, data) => {
         if (err) {
           callback(err)
         } else {
@@ -54,7 +54,7 @@ module.exports = {
 
     addListing: (listingInput, callback) => {
       const dataArr = [listingInput];
-      pool.query('INSERT INTO listing(neighborhood_id, price, sqft, bed_number, bath_number, listing_address, images) VALUES ?', dataArr, (err, data) => {
+      pool.query('INSERT INTO listings(neighborhood_id, price, sqft, bed_number, bath_number, listing_address, images) VALUES ?', dataArr, (err, data) => {
         if (err) {
           callback(err)
         } else {
@@ -64,7 +64,7 @@ module.exports = {
     },
     
     getNearbyHomes: (neighboroodId, callback) => {
-      pool.query('SELECT * FROM listing WHERE neighborhood_id = $1::integer', [neighboroodId], (err, data) => {
+      pool.query('SELECT * FROM listings WHERE neighborhood_id = $1::integer', [neighboroodId], (err, data) => {
         if (err) {
           callback(err)
         } else {
